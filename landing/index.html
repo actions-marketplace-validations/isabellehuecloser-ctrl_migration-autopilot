@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Migration Autopilot — catch unsafe DB migrations before they hit production</title>
+  <meta name="description" content="A GitHub App that reviews every database-migration PR and blocks the ones that lock your production table or drop data. Prisma, Drizzle, Rails, raw SQL." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Migration Autopilot — catch unsafe DB migrations before production" />
+  <meta property="og:description" content="Reviews every migration PR and blocks the ones that lock your prod table or drop data. Prisma, Drizzle, Rails, raw SQL." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://migration.useautopilot.dev" />
+  <meta property="og:image" content="https://migration.useautopilot.dev/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Migration Autopilot — catch unsafe DB migrations before production" />
+  <meta name="twitter:description" content="Reviews every migration PR and blocks the ones that lock your prod table or drop data." />
+  <meta name="twitter:image" content="https://migration.useautopilot.dev/og.png" />
+
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #2f81f7;      /* blue — distinct from svelte(orange)/i18n(green) */
+      --danger: #f85149;
+      --warn: #d29922;
+      --ok: #2ea44f;
+      --radius: 12px;
+      --maxw: 980px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+    header {
+      border-bottom: 1px solid var(--border); position: sticky; top: 0;
+      background: rgba(13,17,23,.85); backdrop-filter: blur(8px); z-index: 10;
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .brand { font-weight: 700; font-size: 18px; letter-spacing: -.02em; display: flex; align-items: center; gap: 8px; }
+    .brand .logo { width: 26px; height: 26px; border-radius: 6px; background: linear-gradient(135deg, var(--accent), #1f6feb); display: inline-block; }
+    .pill { font-size: 12px; color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 3px 10px; }
+    .section { padding: 72px 0; border-bottom: 1px solid var(--border); }
+    .h1 { font-size: clamp(30px, 5vw, 52px); font-weight: 800; letter-spacing: -.03em; line-height: 1.1; }
+    .h2 { font-size: clamp(24px, 3.5vw, 34px); font-weight: 800; letter-spacing: -.02em; }
+    .lead { color: var(--muted); font-size: 19px; margin-top: 16px; max-width: 640px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: white; text-decoration: none;
+      padding: 13px 22px; border-radius: var(--radius); font-weight: 600;
+      border: none; cursor: pointer; font-size: 16px;
+    }
+    .btn.secondary { background: transparent; border: 1px solid var(--border); color: var(--text); }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .grid { display: grid; gap: 20px; }
+    .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+    .card h3 { font-size: 17px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .card p { color: var(--muted); font-size: 15px; }
+    .muted { color: var(--muted); }
+    .center { text-align: center; }
+    .mt-8 { margin-top: 8px; } .mt-16 { margin-top: 16px; } .mt-24 { margin-top: 24px; } .mt-40 { margin-top: 40px; }
+    code { background: #1f2630; padding: 2px 6px; border-radius: 6px; font-size: 13px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    pre { background: #1f2630; border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; overflow:auto; font-size: 13px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: #c9d1d9; }
+    .price { font-size: 44px; font-weight: 800; letter-spacing: -.02em; }
+    .price small { font-size: 16px; color: var(--muted); font-weight: 500; }
+    .field { display:flex; gap:10px; flex-wrap:wrap; max-width: 460px; }
+    .field input { flex:1; min-width: 220px; background: var(--surface); border:1px solid var(--border); border-radius: var(--radius); color: var(--text); padding: 13px 14px; font-size: 15px; }
+    .note { font-size: 13px; color: var(--muted); margin-top: 10px; }
+    footer { padding: 40px 0; color: var(--muted); font-size: 14px; }
+    .badge { font-size:12px; padding:2px 8px; border-radius:999px; border:1px solid var(--border); }
+    .badge.red { color: var(--danger); border-color: rgba(248,81,73,.4); }
+    .badge.yellow { color: var(--warn); border-color: rgba(210,153,34,.4); }
+    @media (max-width: 720px) { .grid.cols-3 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav class="nav">
+        <div class="brand"><span class="logo"></span> Migration Autopilot</div>
+        <span class="pill">part of useAutopilot</span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="section">
+      <div class="wrap">
+        <h1 class="h1">Catch the migration that locks<br/>your production table.</h1>
+        <p class="lead">
+          A migration that ran in 0.4s on staging can freeze your <code>users</code> table for 20 minutes
+          in production. Migration Autopilot reviews every migration PR and blocks the unsafe ones —
+          with the exact safe rewrite. Prisma, Drizzle, Rails, raw SQL.
+        </p>
+        <div class="row mt-24">
+          <a class="btn" href="#early">Get early access — $12/mo</a>
+          <a class="btn secondary" href="https://github.com/isabellehuecloser-ctrl/migration-autopilot" target="_blank" rel="noopener">Free GitHub Action →</a>
+        </div>
+        <p class="note">No DBA on the team? This is your DBA on every pull request.</p>
+      </div>
+    </section>
+
+    <!-- WHAT IT CATCHES -->
+    <section class="section">
+      <div class="wrap">
+        <h2 class="h2">What it catches</h2>
+        <div class="grid cols-3 mt-24">
+          <div class="card">
+            <h3><span class="badge red">data loss</span></h3>
+            <p><strong>DROP COLUMN, DROP TABLE, TRUNCATE</strong> — permanently deletes data and breaks the running app version mid-deploy. We block it and suggest the expand/contract path.</p>
+          </div>
+          <div class="card">
+            <h3><span class="badge red">prod lock</span></h3>
+            <p><strong>SET NOT NULL, type changes, non-CONCURRENTLY index</strong> — take an exclusive lock and scan every row, freezing reads and writes on a big table.</p>
+          </div>
+          <div class="card">
+            <h3><span class="badge yellow">silent break</span></h3>
+            <p><strong>Renames, foreign keys & checks without NOT VALID</strong> — validate every row under a lock, or break the deployed app the instant they land.</p>
+          </div>
+        </div>
+        <p class="note mt-16">Deterministic rule engine built from real production postmortems — near-zero false positives, so you can require it as a merge gate without crying wolf.</p>
+      </div>
+    </section>
+
+    <!-- HOW -->
+    <section class="section">
+      <div class="wrap">
+        <h2 class="h2">Two minutes to set up</h2>
+        <pre class="mt-24"># .github/workflows/migration-review.yml
+name: Migration Autopilot
+on: pull_request
+permissions: { contents: read, pull-requests: write }
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: isabellehuecloser-ctrl/migration-autopilot@v0
+        with:
+          fail-on: high     # block merge on dangerous migrations</pre>
+        <p class="note">No OpenAI key required — detection is deterministic. The hosted Pro version is 1-click, no CI file, with a dashboard and history.</p>
+      </div>
+    </section>
+
+    <!-- PRICING / EARLY ACCESS -->
+    <section class="section" id="early">
+      <div class="wrap">
+        <h2 class="h2">Early access</h2>
+        <div class="grid cols-3 mt-24">
+          <div class="card">
+            <h3>Free Action</h3>
+            <p class="price">$0</p>
+            <p class="mt-8">Self-hosted GitHub Action. Full rule engine. Bring your own CI.</p>
+          </div>
+          <div class="card" style="border-color: var(--accent);">
+            <h3>Pro (hosted)</h3>
+            <p class="price">$12<small>/mo</small></p>
+            <p class="mt-8">1-click install, no CI setup, dashboard + history, all repos.</p>
+            <a class="btn mt-16" id="checkout" href="#" data-stripe-link="REPLACE_WITH_STRIPE_CHECKOUT_LINK">Reserve early access →</a>
+          </div>
+          <div class="card">
+            <h3>Team</h3>
+            <p class="price">Soon</p>
+            <p class="mt-8">Org-wide policy, required checks, multi-repo. Talk to us.</p>
+          </div>
+        </div>
+
+        <div class="card mt-40" style="max-width:560px;">
+          <h3>Get notified at launch</h3>
+          <p class="muted mt-8">Drop your email — we'll ping you the day it goes live, plus a launch discount.</p>
+          <form class="field mt-16" id="capture" onsubmit="return onCapture(event)">
+            <input type="email" id="email" placeholder="you@company.com" required />
+            <button class="btn" type="submit">Notify me</button>
+          </form>
+          <p class="note" id="capture-msg"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="row" style="justify-content:space-between;">
+        <span>🪄 Migration Autopilot — part of <a href="https://useautopilot.dev">useAutopilot</a></span>
+        <span class="muted">Prisma · Drizzle · Rails · SQL</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       SMOKE-TEST WIRING (Phase 0bis.A)
+       Founder TODO before going live:
+       1. EMAIL CAPTURE: replace the FORM_ENDPOINT below with a real
+          endpoint (Formspree / Tally / Buttondown / your own). Right now
+          it stores locally + counts the click so you can eyeball demand.
+       2. STRIPE: create a $1 test price in your LIVE Stripe, make a
+          Payment Link, paste it into data-stripe-link on #checkout above.
+          (Refund the $1 within 24h per the playbook.)
+       3. ANALYTICS: paste your Plausible/Posthog snippet in <head> to
+          measure impressions / email rate / click-to-Stripe.
+       Targets per playbook on 100 ICP visitors: >=10% email, >=3% Stripe
+       click, >=1% pay the $1. <0.5% => STOP, rethink pitch.
+       ============================================================ -->
+  <script>
+    const FORM_ENDPOINT = ""; // <-- paste Formspree/Tally endpoint here
+
+    function track(event) {
+      try {
+        const k = "ma_smoke_" + event;
+        localStorage.setItem(k, (parseInt(localStorage.getItem(k) || "0", 10) + 1));
+      } catch (e) {}
+      if (window.plausible) window.plausible(event);
+    }
+
+    // Stripe checkout button: only navigates once the founder pastes a real link.
+    document.getElementById("checkout").addEventListener("click", function (e) {
+      track("click_stripe");
+      const link = this.getAttribute("data-stripe-link");
+      if (!link || link.startsWith("REPLACE_")) {
+        e.preventDefault();
+        alert("Checkout link not configured yet. (Founder: paste the Stripe Payment Link into data-stripe-link.)");
+      } else {
+        this.href = link;
+      }
+    });
+
+    async function onCapture(e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value.trim();
+      const msg = document.getElementById("capture-msg");
+      if (!email) return false;
+      track("email_capture");
+      if (FORM_ENDPOINT) {
+        try {
+          await fetch(FORM_ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify({ email })
+          });
+        } catch (e) {}
+      } else {
+        try {
+          const list = JSON.parse(localStorage.getItem("ma_emails") || "[]");
+          list.push(email); localStorage.setItem("ma_emails", JSON.stringify(list));
+        } catch (e) {}
+      }
+      msg.textContent = "Thanks — you're on the list. We'll email you at launch.";
+      document.getElementById("capture").reset();
+      return false;
+    }
+  </script>
+</body>
+</html>
