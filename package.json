@@ -1,0 +1,25 @@
+{
+  "name": "migration-autopilot",
+  "version": "0.1.0",
+  "description": "GitHub Action: reviews every database-migration PR and blocks the ones that lock your production table or drop data. Prisma, Drizzle, Rails, raw SQL.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build src/main.ts -o dist --source-map --license licenses.txt",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "evals": "tsx evals/run-evals.ts"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.0",
+    "openai": "^4.77.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@vercel/ncc": "^0.38.3",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  }
+}

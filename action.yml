@@ -1,0 +1,42 @@
+name: "Migration Autopilot"
+description: "Reviews every DB-migration PR and blocks the ones that lock your prod table or drop data. Prisma, Drizzle, Rails, raw SQL."
+author: "migration-autopilot"
+branding:
+  icon: "database"
+  color: "blue"
+
+inputs:
+  github-token:
+    description: "Token used to read the PR and post the review. Defaults to the workflow token."
+    required: false
+    default: ${{ github.token }}
+  fail-on:
+    description: "Minimum severity that fails the check (and blocks merge if the check is required): high, medium, or never."
+    required: false
+    default: "high"
+  dialect:
+    description: "Default SQL dialect for raw .sql files: postgres or mysql. (Prisma/Drizzle/Rails are auto-detected.)"
+    required: false
+    default: "postgres"
+  api-key:
+    description: "Optional OpenAI API key. If set, findings get an AI-written plain-English explanation and safe rewrite. The rule engine works fully WITHOUT a key."
+    required: false
+    default: ""
+  model:
+    description: "OpenAI model for optional explanation enrichment."
+    required: false
+    default: "gpt-4o-mini"
+  max-files:
+    description: "Maximum number of changed migration files to review in one run."
+    required: false
+    default: "50"
+
+outputs:
+  findings-count:
+    description: "Total number of migration findings reported."
+  highest-severity:
+    description: "Highest severity found: high, medium, low, or none."
+
+runs:
+  using: "node20"
+  main: "dist/index.js"

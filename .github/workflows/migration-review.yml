@@ -1,0 +1,23 @@
+name: Migration Autopilot
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: isabellehuecloser-ctrl/migration-autopilot@v0
+        with:
+          # Fail the check (and block merge, if this check is required) on high-severity risks.
+          # Use "medium" to be stricter, or "never" to comment-only.
+          fail-on: high
+          # Default dialect for raw .sql files (Prisma/Drizzle/Rails are auto-detected).
+          dialect: postgres
+          # Optional: set an OpenAI key to add plain-English explanations to each finding.
+          # The rule engine works fully WITHOUT a key.
+          # api-key: ${{ secrets.OPENAI_API_KEY }}
