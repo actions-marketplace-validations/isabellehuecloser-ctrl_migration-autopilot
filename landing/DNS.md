@@ -1,25 +1,20 @@
-# DNS — brancher migration.useautopilot.dev (Cloudflare)
+# DNS — migration.useautopilot.dev (Cloudflare)
 
-> Landing déjà live sur **https://migration-autopilot-landing.fly.dev**.
-> Cert Fly pour `migration.useautopilot.dev` déjà créé sur l'app `migration-autopilot-landing`
-> (status "Not verified" = attend juste le DNS ci-dessous, puis s'émet seul).
+Fly app `migration-autopilot-landing`. Cert créé, status "Not verified" — attend ces 2 records.
 
-## Records à ajouter dans Cloudflare (zone useautopilot.dev)
+## Records à ajouter dans Cloudflare
 
-| Type | Name | Value | Proxy |
-|------|------|-------|-------|
-| A    | `migration` | `66.241.125.199` | **DNS only (nuage GRIS)** |
-| AAAA | `migration` | `2a09:8280:1::11d:4fbc:0` | **DNS only (nuage GRIS)** |
+Dashboard Cloudflare → zone **useautopilot.dev** → **DNS** → **Add record**, 2 fois :
 
-⚠️ **Nuage GRIS** (DNS only, pas orange/proxy). Le proxy Cloudflare casse la validation Let's Encrypt de Fly.
+| Type | Name        | Content (IPv4/IPv6)        | Proxy status        | TTL  |
+|------|-------------|----------------------------|---------------------|------|
+| A    | `migration` | `66.241.125.199`           | **DNS only (gris)** | Auto |
+| AAAA | `migration` | `2a09:8280:1::11d:4fbc:0`  | **DNS only (gris)** | Auto |
 
-### Alternative 1 record : CNAME
-| Type | Name | Value | Proxy |
-|------|------|-------|-------|
-| CNAME | `migration` | `migration-autopilot-landing.fly.dev` | DNS only (gris) |
+⚠️ **Nuage GRIS (DNS only), PAS orange (Proxied)** — sinon le cert Let's Encrypt de Fly échoue.
 
-## Après avoir ajouté les records → me prévenir
-Je lance `fly certs check migration.useautopilot.dev -a migration-autopilot-landing` jusqu'à "Configured",
-puis je bascule les meta OG/twitter vers le domaine propre et je redéploie.
+## Après avoir ajouté les records
+Dis "DNS fait" → je lance `fly certs check` jusqu'à "verified", puis bascule OG/canonical de la
+landing vers https://migration.useautopilot.dev et redéploie.
 
-(IPs sorties par `fly deploy` : IPv4 partagée 66.241.125.199, IPv6 dédiée 2a09:8280:1::11d:4fbc:0.)
+Propagation : souvent <5 min en DNS-only, parfois jusqu'à 1h.
