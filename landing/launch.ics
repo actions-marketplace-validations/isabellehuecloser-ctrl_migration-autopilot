@@ -1,0 +1,167 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//migration-autopilot//launch-pack//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:ma-warmup-2026-06-01@useautopilot.dev
+DTSTAMP:20260531T180000Z
+DTSTART:20260601T180000Z
+DTEND:20260601T200000Z
+SUMMARY:🌙 SOIR J-1 migration-autopilot — stars + article + tweet + LinkedI
+ n FR
+DESCRIPTION:BLOC 2H — clique chaque lien.\n\n━━━ 1) ⭐ STARS (20 min) ━━━\nE
+ nvoie ce message à 5 amis dev (WhatsApp) :\n« Hey [prénom]\, j'ai publié mi
+ gration-autopilot. ⭐ stp ? https://github.com/isabellehuecloser-ctrl/migrat
+ ion-autopilot »\n\nCompteur stars : https://github.com/isabellehuecloser-ct
+ rl/migration-autopilot\n\n━━━ 2) 📝 ARTICLE Dev.to (10 min) ━━━\na) Ouvrir 
+ le gist public (article inside) : https://gist.github.com/isabellehuecloser
+ -ctrl/1903028c2bc942db128e6f0ab085ce82\nb) Bouton 'Raw' → Ctrl+A → Ctrl+C\n
+ c) Ouvrir https://dev.to/new → coller → Publish\n⚠️ GARDE L'URL publiée (be
+ soin pour Reddit mercredi).\n\n━━━ 3) 🐦 TWEET THREAD (10 min) ━━━\nTweet #
+ 1 (prérempli\, juste Post) :\nhttps://twitter.com/intent/tweet?text=A%20mig
+ ration%20that%20ran%20in%200.4%20seconds%20on%20staging%20locked%20our%20pr
+ od%20users%20table%20for%2020%20minutes.%0A%0AThree%20tokens%20of%20SQL.%20
+ %60ALTER%20COLUMN%20...%20SET%20NOT%20NULL%60%20on%20a%20billion-row%20tabl
+ e.%0A%0ASo%20I%20built%20the%20linter%20I%20wanted%3A%20it%20reads%20every%
+ 20PR%20and%20blocks%20the%20unsafe%20migrations%20before%20merge.\n\nPuis r
+ éponds avec #2 → #5 du fichier week-of-2026-06-08.md.\n\n━━━ 4) 💼 LINKEDIN
+  FR (10 min) ━━━\nPost FR prérempli\, juste Publier :\nhttps://www.linkedin
+ .com/feed/?shareActive=true&text=Une%20migration%20qui%20a%20tourn%C3%A9%20
+ en%200%2C4%20seconde%20sur%20staging%20a%20lock%C3%A9%20notre%20table%20use
+ rs%20en%20prod%20pendant%2020%20minutes.%0A%0ALa%20ligne%2C%20c'%C3%A9taien
+ t%20trois%20tokens.%20ALTER%20COLUMN%20...%20SET%20NOT%20NULL.%20Staging%20
+ avait%2030%20000%20lignes.%20La%20prod%20en%20avait%20plus%20d'un%20milliar
+ d.%20Postgres%20a%20scann%C3%A9%20chaque%20ligne%20pour%20valider%20la%20co
+ ntrainte%2C%20en%20tenant%20un%20lock%20exclusif%20tout%20du%20long.%20Pend
+ ant%2020%20minutes%2C%20l'app%20a%20renvoy%C3%A9%20des%20503%20%C3%A0%20tou
+ t%20le%20monde.%0A%0ALe%20fix%20est%20connu.%20Le%20pattern%20est%20dans%20
+ tous%20les%20handbooks%20Postgres.%20Mais%20rien%20dans%20le%20flux%20de%20
+ PR%20review%20standard%20ne%20signalait%20%22cette%20commande%20va%20bloque
+ r%20les%20writes%20le%20temps%20d'un%20scan%20complet%20de%20table%22.%20Le
+ %20reviewer%20senior%20n'a%20pas%20vu.%20La%20CI%20n'a%20pas%20vu.%20Stagin
+ g%20n'a%20pas%20vu%20non%20plus%2C%20parce%20que%20staging%20%C3%A9tait%20p
+ etit.%0A%0ADonc%20j'ai%20construit%20le%20linter%20que%20je%20voulais%20%3A
+ %20une%20GitHub%20Action%20qui%20lit%20chaque%20PR%20de%20migration%20et%20
+ flag%20les%20commandes%20qui%20prennent%20un%20lock%20exclusif%2C%20supprim
+ ent%20des%20donn%C3%A9es%2C%20ou%20cassent%20la%20version%20d%C3%A9ploy%C3%
+ A9e%20pendant%20le%20rollout.%20Quinze%20r%C3%A8gles%2C%20tir%C3%A9es%20de%
+ 20postmortems%20r%C3%A9els%2C%20Squawk%2C%20ankane%2Fstrong_migrations%2C%2
+ 0et%20la%20s%C3%A9rie%20Atlas%20PG301-311.%20Multi-ORM%20%E2%80%94%20Prisma
+ %2C%20Drizzle%2C%20Rails%2C%20SQL%20brut.%0A%0AC'est%20une%20GitHub%20Actio
+ n%20gratuite.%20La%20d%C3%A9tection%20est%20d%C3%A9terministe%2C%20pas%20LL
+ M%20%E2%80%94%20un%20outil%20qui%20gate%20les%20merges%20et%20crie%20au%20l
+ oup%20se%20fait%20d%C3%A9sactiver%20en%20une%20semaine.%0A%0A%E2%86%92%20mi
+ gration.useautopilot.dev%0A%0ASi%20t'as%20d%C3%A9j%C3%A0%20shipp%C3%A9%20un
+ e%20migration%20qui%20a%20fait%20tomber%20la%20prod%2C%20c'%C3%A9tait%20quo
+ i%20le%20pattern%20%3F%0A%0A%23postgres%20%23devops%20%23buildinpublic\n\n━
+ ━━ 5) 📬 NEWSLETTERS (20 min) ━━━\nPitch : « Free GitHub Action that catche
+ s unsafe DB migrations in PR review — Prisma/Drizzle/Rails/SQL. No API key\
+ , MIT. https://migration.useautopilot.dev »\n\n→ TLDR : https://tldr.tech/s
+ ubmit\n→ Bytes : https://bytes.dev/submit\n→ Postgres Weekly : https://post
+ gresweekly.com\n→ Console.dev : https://console.dev/contact\n\n━━━━━━━━━━━━
+ ━━━━━━━━━━\nOBJECTIF avant minuit : ≥5 stars GitHub.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma-dm-influencers-2026-06-02@useautopilot.dev
+DTSTAMP:20260531T180000Z
+DTSTART:20260602T070000Z
+DTEND:20260602T100000Z
+SUMMARY:📨 DM influenceurs Postgres — migration-autopilot
+DESCRIPTION:DM 6-8 comptes (chaque DM customisé sur leur dernier tweet — 15
+ s lookup) :\n\n• @be_haki (DB perf)\n• @nikolayhg (postgres.ai)\n• @samokhv
+ alov\n• @craigkerstiens (Crunchy Data)\n• @ankane (strong_migrations)\n• @_
+ msw_ (Drizzle)\n\nTEMPLATE :\n« Hey [prénom] — vu ton tweet sur [topic]. Je
+  viens de publier migration-autopilot\, GitHub Action gratuite qui lint les
+  migrations DB en PR. Show HN ce soir 18h. Ton avis si tu as 2 min ?\n→ htt
+ ps://github.com/isabellehuecloser-ctrl/migration-autopilot (demo 60s : http
+ s://migration.useautopilot.dev/demo). Merci 🙏 »\n\nObjectif : 1-2 quote-tw
+ eets pendant Show HN ce soir.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma-tminus15-2026-06-02@useautopilot.dev
+DTSTAMP:20260531T180000Z
+DTSTART:20260602T154500Z
+DTEND:20260602T160000Z
+SUMMARY:🚀 T-15 SHOW HN migration-autopilot
+DESCRIPTION:PREP 15 MIN AVANT GO-LIVE.\n\nOnglets à ouvrir :\n1. https://ne
+ ws.ycombinator.com/submit\n2. https://migration.useautopilot.dev\n3. https:
+ //github.com/marketplace/actions/migration-autopilot\n4. https://github.com
+ /isabellehuecloser-ctrl/migration-autopilot\n5. Dashboard Stripe\n6. Formsp
+ ree\n\nPréparer : café/eau\, téléphone silencieux\, bloquer Slack.\n\nTITLE
+  à coller :\n« Show HN: Migration Autopilot – review every DB-migration PR 
+ for safety »\n\nURL à coller :\nhttps://migration.useautopilot.dev\n\nFIRST
+  COMMENT à coller IMMEDIATEMENT après submit :\n« Hi HN — solo dev here. I 
+ built this because I keep seeing the same migration footguns take down prod
+ : SET NOT NULL on a big table\, CREATE INDEX without CONCURRENTLY\, droppin
+ g a column the deployed app still reads. The Action runs 15 deterministic r
+ ules on every PR. No API key\, no LLM in the detection path — false positiv
+ es on a merge-gating tool kill trust within a week. The rule corpus is deri
+ ved from Squawk\, ankane/strong_migrations\, the Atlas PG301-311 series\, a
+ nd real postmortems. What I'd love feedback on: rules I'm missing\, false p
+ ositives on real codebases\, whether the safe-rewrite text is useful or noi
+ se. MIT. https://github.com/isabellehuecloser-ctrl/migration-autopilot »
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma-showhn-2026-06-02@useautopilot.dev
+DTSTAMP:20260531T180000Z
+DTSTART:20260602T160000Z
+DTEND:20260602T200000Z
+SUMMARY:⚡ SHOW HN GO-LIVE — migration-autopilot
+DESCRIPTION:GO : https://news.ycombinator.com/submit\n\nPASTE :\nTitle : Sh
+ ow HN: Migration Autopilot – review every DB-migration PR for safety\nURL :
+  https://migration.useautopilot.dev\n\nPUIS first comment (event T-15 a le 
+ texte).\n\n━━━ RÈGLES D'OR 4H ━━━\n• Reste dans le thread\, réponds <30 min
+  à CHAQUE commentaire\n• Pas d'upvotes demandés (shadowban)\n• Refresh HN m
+ ax 1x / 10 min\n• Bug signalé : merci + crée une issue tout de suite\n\nKPI
+  live (toutes les 30 min) :\nStars : https://github.com/isabellehuecloser-c
+ trl/migration-autopilot\nInstalls : https://github.com/marketplace/actions/
+ migration-autopilot\nFormspree + Stripe
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ma-reddit-2026-06-03@useautopilot.dev
+DTSTAMP:20260531T180000Z
+DTSTART:20260603T080000Z
+DTEND:20260603T083000Z
+SUMMARY:📝 Reddit posts migration-autopilot (J+1)
+DESCRIPTION:Catch l'onde Show HN.\n\nr/PostgreSQL — prérempli\, juste Submi
+ t :\nhttps://www.reddit.com/r/PostgreSQL/submit?title=I%20built%20a%20free%
+ 20GitHub%20Action%20that%20lints%20Postgres%20migrations%20in%20the%20PR&te
+ xt=After%20too%20many%20%22we%20locked%20prod%20for%2020%20min%20on%20a%20S
+ ET%20NOT%20NULL%22%20postmortems%2C%20I%20built%20a%20deterministic%20linte
+ r%20that%20runs%20on%20every%20PR.%0A%0A15%20rules%20drawn%20from%20Squawk%
+ 2C%20ankane%2Fstrong_migrations%2C%20Atlas%20PG301-311%2C%20and%20real%20po
+ stmortems.%0A%0AMulti-ORM%3A%20Prisma%2C%20Drizzle%2C%20Rails%2C%20raw%20SQ
+ L.%20No%20API%20key%2C%20MIT.%0A%0A%E2%86%92%20https%3A%2F%2Fgithub.com%2Fm
+ arketplace%2Factions%2Fmigration-autopilot%0A%E2%86%92%20https%3A%2F%2Fgith
+ ub.com%2Fisabellehuecloser-ctrl%2Fmigration-autopilot%0A%E2%86%92%20https%3
+ A%2F%2Fmigration.useautopilot.dev%2Fdemo\n\nPuis r/devops : https://www.red
+ dit.com/r/devops/submit (adapter focus 'stop downtime').\n\n⚠️ 1er commenta
+ ire du post : « HN thread for context : https://news.ycombinator.com/item?i
+ d=... »
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR
