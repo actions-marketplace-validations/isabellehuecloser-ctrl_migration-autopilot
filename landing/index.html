@@ -101,6 +101,11 @@
     <!-- HERO -->
     <section class="section">
       <div class="wrap">
+        <div class="row" style="gap:8px;margin-bottom:18px;">
+          <span class="badge" style="border-color:#2f81f7;color:#2f81f7;">on the GitHub Marketplace</span>
+          <span class="badge" style="border-color:#2ea44f;color:#2ea44f;">free · MIT</span>
+          <span class="badge" style="border-color:#8b949e;color:#c9d1d9;">no API key required</span>
+        </div>
         <h1 class="h1">Catch the migration that locks<br/>your production table.</h1>
         <p class="lead">
           A migration that ran in 0.4s on staging can freeze your <code>users</code> table for 20 minutes
@@ -108,11 +113,12 @@
           with the exact safe rewrite. Prisma, Drizzle, Rails, raw SQL.
         </p>
         <div class="row mt-24">
-          <a class="btn" href="#early">Get early access — €12/mo</a>
-          <a class="btn secondary" href="https://github.com/isabellehuecloser-ctrl/migration-autopilot" target="_blank" rel="noopener">Free GitHub Action →</a>
-          <a class="btn secondary" href="https://www.loom.com/share/ab8d293bd8b94baa89fb6ab090a2c974" target="_blank" rel="noopener">📺 Watch 60s demo</a>
+          <a class="btn" href="https://github.com/marketplace/actions/migration-autopilot" target="_blank" rel="noopener">Install the free Action →</a>
+          <a class="btn secondary" href="/demo">📺 Watch 60s demo</a>
+          <a class="btn secondary" href="#early">Reserve hosted Pro</a>
         </div>
         <p class="note">No DBA on the team? This is your DBA on every pull request.</p>
+        <img src="/hero.png" alt="Migration Autopilot blocks a DROP COLUMN PR — bot comment explains the risk, suggests the safe rewrite, fails the check, blocks merge." style="margin-top:36px;width:100%;max-width:880px;border-radius:14px;border:1px solid var(--border);display:block;" />
       </div>
     </section>
 
@@ -135,6 +141,69 @@
           </div>
         </div>
         <p class="note mt-16">Deterministic rule engine built from real production postmortems — near-zero false positives, so you can require it as a merge gate without crying wolf.</p>
+      </div>
+    </section>
+
+    <!-- COMPARISON -->
+    <section class="section">
+      <div class="wrap">
+        <h2 class="h2">How it compares</h2>
+        <div class="card mt-24" style="overflow-x:auto;">
+          <table style="width:100%;border-collapse:collapse;font-size:14px;color:var(--text);">
+            <thead>
+              <tr style="text-align:left;color:var(--muted);border-bottom:1px solid var(--border);">
+                <th style="padding:12px 10px;">&nbsp;</th>
+                <th style="padding:12px 10px;">Multi-ORM</th>
+                <th style="padding:12px 10px;">Hosted</th>
+                <th style="padding:12px 10px;">PR-native</th>
+                <th style="padding:12px 10px;">Deterministic</th>
+                <th style="padding:12px 10px;">Free tier</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:12px 10px;"><strong>Migration Autopilot</strong></td>
+                <td style="padding:12px 10px;color:#2ea44f;">✅ Prisma · Drizzle · Rails · SQL</td>
+                <td style="padding:12px 10px;color:#2ea44f;">✅ (Pro)</td>
+                <td style="padding:12px 10px;color:#2ea44f;">✅</td>
+                <td style="padding:12px 10px;color:#2ea44f;">✅ (rules, not LLM)</td>
+                <td style="padding:12px 10px;color:#2ea44f;">✅ unlimited Action</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);color:var(--muted);">
+                <td style="padding:12px 10px;">Squawk (OSS)</td>
+                <td style="padding:12px 10px;">❌ Postgres SQL only</td>
+                <td style="padding:12px 10px;">❌</td>
+                <td style="padding:12px 10px;">⚠ DIY CI</td>
+                <td style="padding:12px 10px;">✅</td>
+                <td style="padding:12px 10px;">✅ self-host</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);color:var(--muted);">
+                <td style="padding:12px 10px;">strong_migrations (OSS)</td>
+                <td style="padding:12px 10px;">❌ Rails only</td>
+                <td style="padding:12px 10px;">❌</td>
+                <td style="padding:12px 10px;">⚠ runtime, not PR</td>
+                <td style="padding:12px 10px;">✅</td>
+                <td style="padding:12px 10px;">✅</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);color:var(--muted);">
+                <td style="padding:12px 10px;">Atlas migrate lint</td>
+                <td style="padding:12px 10px;">✅</td>
+                <td style="padding:12px 10px;">✅</td>
+                <td style="padding:12px 10px;">✅</td>
+                <td style="padding:12px 10px;">✅</td>
+                <td style="padding:12px 10px;">❌ paywalled Oct 2025</td>
+              </tr>
+              <tr style="color:var(--muted);">
+                <td style="padding:12px 10px;">CodeRabbit / Greptile / Qodo</td>
+                <td style="padding:12px 10px;">⚠ generic</td>
+                <td style="padding:12px 10px;">✅</td>
+                <td style="padding:12px 10px;">✅</td>
+                <td style="padding:12px 10px;">❌ LLM</td>
+                <td style="padding:12px 10px;">⚠ trial</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 

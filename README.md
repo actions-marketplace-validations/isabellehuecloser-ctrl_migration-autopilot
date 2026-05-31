@@ -1,8 +1,13 @@
 # 🗃️ Migration Autopilot
 
+[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-Migration%20Autopilot-2f81f7?logo=github&logoColor=white)](https://github.com/marketplace/actions/migration-autopilot)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Postgres](https://img.shields.io/badge/Postgres-supported-336791?logo=postgresql&logoColor=white)](#supported-migrations)
+[![No API key](https://img.shields.io/badge/no%20API%20key-required-2ea44f)](#quick-start)
 
 **Reviews every database-migration PR and blocks the ones that lock your production table or drop data — Prisma, Drizzle, Rails, raw SQL.**
+
+![Migration Autopilot catches DROP COLUMN, ADD NOT NULL and a non-CONCURRENTLY index on real pull requests — each finding fails the check and blocks merge.](docs/demo.gif)
 
 📺 **[Watch the 60s demo →](https://www.loom.com/share/ab8d293bd8b94baa89fb6ab090a2c974)** (real PRs with `DROP COLUMN`, `ADD NOT NULL` and a non-`CONCURRENTLY` index — each caught, merge blocked.)
 
@@ -128,6 +133,12 @@ npm test          # unit tests (vitest)
 npm run evals     # golden-set precision/recall/F1 gate
 npm run build     # bundle to dist/ via ncc
 ```
+
+## Star history & feedback
+
+If this Action catches a footgun on a real PR of yours — drop a ⭐. That's how
+I know it's landing somewhere. Issues, false-positive reports, and rule
+suggestions all welcome.
 
 ## License
 

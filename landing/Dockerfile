@@ -8,6 +8,7 @@ COPY terms.html /usr/share/nginx/html/terms.html
 COPY 404.html /usr/share/nginx/html/404.html
 COPY og.png /usr/share/nginx/html/og.png
 COPY favicon.png /usr/share/nginx/html/favicon.png
+COPY hero.png /usr/share/nginx/html/hero.png
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 8080
