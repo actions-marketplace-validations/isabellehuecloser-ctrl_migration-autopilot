@@ -4,6 +4,8 @@
 
 **Reviews every database-migration PR and blocks the ones that lock your production table or drop data — Prisma, Drizzle, Rails, raw SQL.**
 
+📺 **[Watch the 60s demo →](https://www.loom.com/share/ab8d293bd8b94baa89fb6ab090a2c974)** (real PRs with `DROP COLUMN`, `ADD NOT NULL` and a non-`CONCURRENTLY` index — each caught, merge blocked.)
+
 A migration that ran in 0.4s on staging can lock your `users` table for 20 minutes in production. `ALTER COLUMN ... SET NOT NULL`, a non-`CONCURRENTLY` index, a `NOT NULL` column with a backfill, a column type change — each takes an exclusive lock and scans every row. Generic AI review bots don't model lock semantics. Migration Autopilot does: it reads each PR's migration files and flags the operations that cause downtime or data loss, with a safe rewrite for each.
 
 > **Two ways to use it**
