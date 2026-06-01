@@ -85,15 +85,20 @@ DTSTART:20260602T070000Z
 DTEND:20260602T100000Z
 SUMMARY:📨 [LAUNCH J0 matin] migration-autopilot — DM 10 influenceurs Postg
  res
-DESCRIPTION:DM 6-8 comptes (chaque DM customisé sur leur dernier tweet — 15
- s lookup) :\n\n• @be_haki (DB perf)\n• @nikolayhg (postgres.ai)\n• @samokhv
- alov\n• @craigkerstiens (Crunchy Data)\n• @ankane (strong_migrations)\n• @_
- msw_ (Drizzle)\n\nTEMPLATE :\n« Hey [prénom] — vu ton tweet sur [topic]. Je
-  viens de publier migration-autopilot\, GitHub Action gratuite qui lint les
-  migrations DB en PR. Show HN ce soir 18h. Ton avis si tu as 2 min ?\n→ htt
- ps://github.com/isabellehuecloser-ctrl/migration-autopilot (demo 60s : http
- s://migration.useautopilot.dev/demo). Merci 🙏 »\n\nObjectif : 1-2 quote-tw
- eets pendant Show HN ce soir.
+DESCRIPTION:DM 8 comptes (customisé sur leur dernier tweet — 15s lookup cha
+ cun) :\n\n• @samokhvalov (Nik\, postgres.ai\, 11.3K followers) — lock inves
+ tigations\n• @be_haki (Haki Benita\, 2.9K X / 32K LinkedIn) — DB deep dives
+ \n• @craigkerstiens (Crunchy Data\, Postgres Weekly curator)\n• @LukasFittl
+  (pganalyze CEO\, 5min-of-Postgres video)\n• @andatki (Andy Atkinson\, Auth
+ or 'High-Perf PG for Rails')\n• @DrizzleORM (official)\n• @prisma (official
+ )\n• @arigaio (Atlas team\, friendly tag — direct concurrent OK)\n\nTEMPLAT
+ E :\n« Hey [prénom] — vu ton post sur [topic]. Je viens de publier migratio
+ n-autopilot\, GitHub Action open-source qui lint les migrations DB en PR (m
+ ulti-ORM Prisma/Drizzle/Rails/SQL\, détection déterministe\, pas LLM). Show
+  HN ce soir 18h Paris. Tu accepterais d'y jeter un œil 2 min ? Aucune atten
+ te d'upvote\, juste ton avis technique. → https://github.com/isabellehueclo
+ ser-ctrl/migration-autopilot (demo 60s : https://migration.useautopilot.dev
+ /demo). Merci 🙏 »\n\nObjectif : 1-2 quote-tweets pendant Show HN ce soir.
 LOCATION:https://twitter.com/messages
 CATEGORIES:MIGRATION-AUTOPILOT-LAUNCH
 BEGIN:VALARM
@@ -125,16 +130,21 @@ DESCRIPTION:PREP 15 MIN AVANT GO-LIVE.\n\nOnglets à ouvrir :\n1. https://ne
  ree\n\nPréparer : café/eau\, téléphone silencieux\, bloquer Slack.\n\nTITLE
   à coller :\n« Show HN: Migration Autopilot – review every DB-migration PR 
  for safety »\n\nURL à coller :\nhttps://migration.useautopilot.dev\n\nFIRST
-  COMMENT à coller IMMEDIATEMENT après submit :\n« Hi HN — solo dev here. I 
- built this because I keep seeing the same migration footguns take down prod
- : SET NOT NULL on a big table\, CREATE INDEX without CONCURRENTLY\, droppin
- g a column the deployed app still reads. The Action runs 15 deterministic r
- ules on every PR. No API key\, no LLM in the detection path — false positiv
- es on a merge-gating tool kill trust within a week. The rule corpus is deri
- ved from Squawk\, ankane/strong_migrations\, the Atlas PG301-311 series\, a
- nd real postmortems. What I'd love feedback on: rules I'm missing\, false p
- ositives on real codebases\, whether the safe-rewrite text is useful or noi
- se. MIT. https://github.com/isabellehuecloser-ctrl/migration-autopilot »
+  COMMENT à coller IMMEDIATEMENT après submit :\n« Solo dev. I expect the to
+ p comment to be "isn't this just Squawk?" so let me address it up front:\n\
+ n- Squawk (sbdchd) is excellent. Postgres + raw SQL only\, you wire the CI 
+ yourself. It's the rule corpus inspiration.\n- strong_migrations (ankane\, 
+ 2018) is the Rails canonical reference. Same patterns\, ORM-bound.\n- Atlas
+  (ariga) shipped migrate lint commercially in 2022 — gold standard\, paywal
+ led October 2025.\n\nMigration Autopilot is the multi-ORM (Prisma/Drizzle/R
+ ails/raw SQL)\, zero-config\, PR-native version of that idea. Detection is 
+ deterministic — no LLM in the path\, false positives kill merge-gating tool
+ s.\n\nThe 15 rules are sourced from those projects + GitLab/GoCardless post
+ mortems. Multi-dialect (Postgres + MySQL). Free MIT Action\; hosted Pro for
+  orgs that need centralized policy.\n\nWhat I'd love feedback on:\n1. Which
+  rule am I missing?\n2. Real-world false positives on your repo?\n3. Is the
+  safe-rewrite text useful or noise?\n\nhttps://github.com/isabellehuecloser
+ -ctrl/migration-autopilot »
 LOCATION:https://news.ycombinator.com/submit
 CATEGORIES:MIGRATION-AUTOPILOT-LAUNCH
 BEGIN:VALARM
