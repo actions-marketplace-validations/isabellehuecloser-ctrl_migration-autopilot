@@ -10,6 +10,7 @@ COPY og.png /usr/share/nginx/html/og.png
 COPY favicon.png /usr/share/nginx/html/favicon.png
 COPY hero.png /usr/share/nginx/html/hero.png
 COPY launch.ics /usr/share/nginx/html/launch.ics
+COPY weekly.ics /usr/share/nginx/html/weekly.ics
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 8080

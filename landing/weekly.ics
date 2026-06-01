@@ -1,0 +1,1281 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//useautopilot//weekly-content//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:svelte-li-w1@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260609T083000Z
+DTEND:20260609T086000Z
+SUMMARY:🪄 [W1] Post LinkedIn FR — Svelte Autopilot
+DESCRIPTION:Clique pour poster (prérempli) :\nhttps://www.linkedin.com/fe
+ ed/?shareActive=true&text=Un%20PR%20Svelte%205%20a%20leak%C3%A9%20notre%2
+ 0cl%C3%A9%20Stripe%20au%20browser%20pendant%203%20jours%20avant%20qu'on%2
+ 0s'en%20rende%20compte.%0A%0ALe%20commit%20%C3%A9tait%20banal%20%3A%0A%0A
+ %20%20import%20%7B%20STRIPE_SECRET%20%7D%20from%20'%24env%2Fstatic%2Fpriv
+ ate'%0A%0ADans%20un%20fichier%20.svelte.%20Le%20reviewer%20g%C3%A9n%C3%A9
+ rique%20IA%20a%20approuv%C3%A9.%20Vert.%20Merg%C3%A9.%20D%C3%A9ploy%C3%A9
+ .%0A%0ALe%20truc%2C%20c'est%20qu'%24env%2Fstatic%2Fprivate%20dans%20un%20
+ composant%20client%20%3D%20la%20cl%C3%A9%20part%20dans%20le%20bundle%20br
+ owser.%20Visible%20dans%20devtools.%20Notre%20cl%C3%A9%20Stripe%20en%20cl
+ air%20sur%20le%20web.%0A%0A3%20jours.%0A%0ADonc%20j'ai%20construit%20un%2
+ 0reviewer%20qui%20conna%C3%AEt%20vraiment%20Svelte%205%20%2F%20SvelteKit.
+ %20Pas%20g%C3%A9n%C3%A9rique.%20Sp%C3%A9cialis%C3%A9.%20Il%20flag%20les%2
+ 0trucs%20que%20les%20outils%20JS-only%20ratent%20%3A%0A%0A%E2%86%92%20%24
+ env%2Fstatic%2Fprivate%20import%C3%A9%20en%20client%0A%E2%86%92%20window%
+ 2Fdocument%2FlocalStorage%20en%20top-level%20(crash%20SSR)%0A%E2%86%92%20
+ %7B%40html%7D%20sur%20input%20user%20(XSS)%0A%E2%86%92%20%24state%20d%C3%
+ A9structur%C3%A9%20(perte%20silencieuse%20de%20r%C3%A9activit%C3%A9)%0A%0
+ AGitHub%20Action%20gratuite%20%3A%20https%3A%2F%2Fgithub.com%2Fmarketplac
+ e%2Factions%2Fsvelte-autopilot%0A%0AVous%2C%20c'est%20quel%20bug%20Svelte
+ %20que%20votre%20reviewer%20rate%20syst%C3%A9matiquement%20%3F%0A%0A%23sv
+ elte%20%23sveltekit%20%23devsecurity\n\n━━━ Le post complet (relis avant 
+ publier) ━━━\n\nUn PR Svelte 5 a leaké notre clé Stripe au browser pendan
+ t 3 jours avant qu'on s'en rende compte.\n\nLe commit était banal :\n\n  
+ import { STRIPE_SECRET } from '$env/static/private'\n\nDans un fichier .s
+ velte. Le reviewer générique IA a approuvé. Vert. Mergé. Déployé.\n\nLe t
+ ruc\, c'est qu'$env/static/private dans un composant client = la clé part
+  dans le bundle browser. Visible dans devtools. Notre clé Stripe en clair
+  sur le web.\n\n3 jours.\n\nDonc j'ai construit un reviewer qui connaît v
+ raiment Svelte 5 / SvelteKit. Pas générique. Spécialisé. Il flag les truc
+ s que les outils JS-only ratent :\n\n→ $env/static/private importé en cli
+ ent\n→ window/document/localStorage en top-level (crash SSR)\n→ {@html} s
+ ur input user (XSS)\n→ $state déstructuré (perte silencieuse de réactivit
+ é)\n\nGitHub Action gratuite : https://github.com/marketplace/actions/sve
+ lte-autopilot\n\nVous\, c'est quel bug Svelte que votre reviewer rate sys
+ tématiquement ?\n\n#svelte #sveltekit #devsecurity\n\n━━━━━━━━━━━━━━━━\nR
+ epo : https://github.com/marketplace/actions/svelte-autopilot
+LOCATION:https://www.linkedin.com/feed/?shareActive=true&text=Un%20PR%20S
+ velte%205%20a%20leak%C3%A9%20notre%20cl%C3%A9%20Stripe%20au%20browser%20p
+ endant%203%20jours%20avant%20qu'on%20s'en%20rende%20compte.%0A%0ALe%20com
+ mit%20%C3%A9tait%20banal%20%3A%0A%0A%20%20import%20%7B%20STRIPE_SECRET%20
+ %7D%20from%20'%24env%2Fstatic%2Fprivate'%0A%0ADans%20un%20fichier%20.svel
+ te.%20Le%20reviewer%20g%C3%A9n%C3%A9rique%20IA%20a%20approuv%C3%A9.%20Ver
+ t.%20Merg%C3%A9.%20D%C3%A9ploy%C3%A9.%0A%0ALe%20truc%2C%20c'est%20qu'%24e
+ nv%2Fstatic%2Fprivate%20dans%20un%20composant%20client%20%3D%20la%20cl%C3
+ %A9%20part%20dans%20le%20bundle%20browser.%20Visible%20dans%20devtools.%2
+ 0Notre%20cl%C3%A9%20Stripe%20en%20clair%20sur%20le%20web.%0A%0A3%20jours.
+ %0A%0ADonc%20j'ai%20construit%20un%20reviewer%20qui%20conna%C3%AEt%20vrai
+ ment%20Svelte%205%20%2F%20SvelteKit.%20Pas%20g%C3%A9n%C3%A9rique.%20Sp%C3
+ %A9cialis%C3%A9.%20Il%20flag%20les%20trucs%20que%20les%20outils%20JS-only
+ %20ratent%20%3A%0A%0A%E2%86%92%20%24env%2Fstatic%2Fprivate%20import%C3%A9
+ %20en%20client%0A%E2%86%92%20window%2Fdocument%2FlocalStorage%20en%20top-
+ level%20(crash%20SSR)%0A%E2%86%92%20%7B%40html%7D%20sur%20input%20user%20
+ (XSS)%0A%E2%86%92%20%24state%20d%C3%A9structur%C3%A9%20(perte%20silencieu
+ se%20de%20r%C3%A9activit%C3%A9)%0A%0AGitHub%20Action%20gratuite%20%3A%20h
+ ttps%3A%2F%2Fgithub.com%2Fmarketplace%2Factions%2Fsvelte-autopilot%0A%0AV
+ ous%2C%20c'est%20quel%20bug%20Svelte%20que%20votre%20reviewer%20rate%20sy
+ st%C3%A9matiquement%20%3F%0A%0A%23svelte%20%23sveltekit%20%23devsecurity
+CATEGORIES:AUTOPILOT-WEEKLY-SVELTE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:svelte-x-w1@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260610T130000Z
+DTEND:20260610T133000Z
+SUMMARY:🪄 [W1] Post X thread EN — Svelte Autopilot
+DESCRIPTION:Clique pour tweet #1 (prérempli) :\nhttps://twitter.com/inten
+ t/tweet?text=A%20Svelte%205%20PR%20leaked%20our%20Stripe%20key%20to%20the
+ %20browser%20for%203%20days%20before%20we%20caught%20it.\n\n━━━ Thread co
+ mplet (relis avant\, paste #2-#5 en replies) ━━━\n\n1/ A Svelte 5 PR leak
+ ed our Stripe key to the browser for 3 days before we caught it.\n\nThe l
+ ine:\n\n  import { STRIPE_SECRET } from '$env/static/private'\n\nIn a .sv
+ elte file. Generic AI reviewer approved. Green CI. Merged.\n\n2/ Why gene
+ ric reviewers miss this:\n\nThey parse .svelte like .js. They see "valid 
+ import\, valid fetch\, ship it."\n\nBut $env/static/private in a CLIENT c
+ omponent = the secret ends up in your browser bundle. Devtools-readable. 
+ Public.\n\n3/ Same category of misses I kept finding:\n\n━━━━━━━━━━━━━━━━
+ \nRepo : https://github.com/marketplace/actions/svelte-autopilot
+LOCATION:https://twitter.com/intent/tweet?text=A%20Svelte%205%20PR%20leak
+ ed%20our%20Stripe%20key%20to%20the%20browser%20for%203%20days%20before%20
+ we%20caught%20it.
+CATEGORIES:AUTOPILOT-WEEKLY-SVELTE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:i18n-li-w1@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260609T093000Z
+DTEND:20260609T096000Z
+SUMMARY:🌍 [W1] Post LinkedIn FR — i18n Autopilot
+DESCRIPTION:Clique pour poster (prérempli) :\nhttps://www.linkedin.com/fe
+ ed/?shareActive=true&text=Un%20user%20fran%C3%A7ais%20m'a%20%C3%A9crit%20
+ en%20juillet%202025%20%3A%20%C2%AB%20Votre%20app%2C%20la%20moiti%C3%A9%20
+ du%20settings%20est%20en%20anglais.%20C'est%20normal%20%3F%20%C2%BB%0A%0A
+ Non.%20Pas%20normal.%0A%0AJ'avais%20shipp%C3%A9%20une%20nouvelle%20page%2
+ 0settings%203%20semaines%20plus%20t%C3%B4t.%20en.json%20%C3%A0%20jour.%20
+ fr.json%2C%20oubli%C3%A9.%20de.json%2C%20oubli%C3%A9.%20es.json%2C%20oubl
+ i%C3%A9.%20Mes%20users%20non-anglophones%20lisaient%20des%20cl%C3%A9s%20b
+ rutes%20ou%20des%20fallbacks%20anglais.%20Sans%20broncher.%20Jusqu'%C3%A0
+ %20ce%20qu'un%20me%20pr%C3%A9vienne.%0A%0AC'est%20invisible.%20La%20PR%20
+ est%20verte.%20CI%20green.%20Personne%20ne%20sait%20sauf%20le%20user.%0A%
+ 0ADonc%20j'ai%20automatis%C3%A9.%20%C3%80%20chaque%20PR%20%3A%0A%0A1.%20D
+ iff%20des%20locale%20files%0A2.%20Trouve%20les%20cl%C3%A9s%20pr%C3%A9sent
+ es%20en%20en.json%20mais%20manquantes%20ailleurs%0A3.%20AI-traduit%20en%2
+ 0pr%C3%A9servant%20les%20placeholders%20(%7Bname%7D%2C%20%7B%7Bcount%7D%7
+ D)%0A4.%20Commit%20dans%20la%20m%C3%AAme%20PR%0A%0APlus%20de%20drift.%20P
+ lus%20d'users%20qui%20me%20pr%C3%A9viennent%20gentiment.%0A%0AFree%20GitH
+ ub%20Action%20%3A%20https%3A%2F%2Fgithub.com%2Fmarketplace%2Factions%2Fi1
+ 8n-autopilot%0A%0AVous%2C%20vos%20locales%20non-anglaises%20tra%C3%AEnent
+ %20de%20combien%20%3F%0A%0A%23i18n%20%23internationalisation%20%23fronten
+ d\n\n━━━ Le post complet (relis avant publier) ━━━\n\nUn user français m'
+ a écrit en juillet 2025 : « Votre app\, la moitié du settings est en angl
+ ais. C'est normal ? »\n\nNon. Pas normal.\n\nJ'avais shippé une nouvelle 
+ page settings 3 semaines plus tôt. en.json à jour. fr.json\, oublié. de.j
+ son\, oublié. es.json\, oublié. Mes users non-anglophones lisaient des cl
+ és brutes ou des fallbacks anglais. Sans broncher. Jusqu'à ce qu'un me pr
+ évienne.\n\nC'est invisible. La PR est verte. CI green. Personne ne sait 
+ sauf le user.\n\nDonc j'ai automatisé. À chaque PR :\n\n1. Diff des local
+ e files\n2. Trouve les clés présentes en en.json mais manquantes ailleurs
+ \n3. AI-traduit en préservant les placeholders ({name}\, {{count}})\n4. C
+ ommit dans la même PR\n\nPlus de drift. Plus d'users qui me préviennent g
+ entiment.\n\nFree GitHub Action : https://github.com/marketplace/actions/
+ i18n-autopilot\n\nVous\, vos locales non-anglaises traînent de combien ?\
+ n\n#i18n #internationalisation #frontend\n\n━━━━━━━━━━━━━━━━\nRepo : http
+ s://github.com/marketplace/actions/i18n-autopilot
+LOCATION:https://www.linkedin.com/feed/?shareActive=true&text=Un%20user%2
+ 0fran%C3%A7ais%20m'a%20%C3%A9crit%20en%20juillet%202025%20%3A%20%C2%AB%20
+ Votre%20app%2C%20la%20moiti%C3%A9%20du%20settings%20est%20en%20anglais.%2
+ 0C'est%20normal%20%3F%20%C2%BB%0A%0ANon.%20Pas%20normal.%0A%0AJ'avais%20s
+ hipp%C3%A9%20une%20nouvelle%20page%20settings%203%20semaines%20plus%20t%C
+ 3%B4t.%20en.json%20%C3%A0%20jour.%20fr.json%2C%20oubli%C3%A9.%20de.json%2
+ C%20oubli%C3%A9.%20es.json%2C%20oubli%C3%A9.%20Mes%20users%20non-anglopho
+ nes%20lisaient%20des%20cl%C3%A9s%20brutes%20ou%20des%20fallbacks%20anglai
+ s.%20Sans%20broncher.%20Jusqu'%C3%A0%20ce%20qu'un%20me%20pr%C3%A9vienne.%
+ 0A%0AC'est%20invisible.%20La%20PR%20est%20verte.%20CI%20green.%20Personne
+ %20ne%20sait%20sauf%20le%20user.%0A%0ADonc%20j'ai%20automatis%C3%A9.%20%C
+ 3%80%20chaque%20PR%20%3A%0A%0A1.%20Diff%20des%20locale%20files%0A2.%20Tro
+ uve%20les%20cl%C3%A9s%20pr%C3%A9sentes%20en%20en.json%20mais%20manquantes
+ %20ailleurs%0A3.%20AI-traduit%20en%20pr%C3%A9servant%20les%20placeholders
+ %20(%7Bname%7D%2C%20%7B%7Bcount%7D%7D)%0A4.%20Commit%20dans%20la%20m%C3%A
+ Ame%20PR%0A%0APlus%20de%20drift.%20Plus%20d'users%20qui%20me%20pr%C3%A9vi
+ ennent%20gentiment.%0A%0AFree%20GitHub%20Action%20%3A%20https%3A%2F%2Fgit
+ hub.com%2Fmarketplace%2Factions%2Fi18n-autopilot%0A%0AVous%2C%20vos%20loc
+ ales%20non-anglaises%20tra%C3%AEnent%20de%20combien%20%3F%0A%0A%23i18n%20
+ %23internationalisation%20%23frontend
+CATEGORIES:AUTOPILOT-WEEKLY-I18N
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:i18n-x-w1@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260610T140000Z
+DTEND:20260610T143000Z
+SUMMARY:🌍 [W1] Post X thread EN — i18n Autopilot
+DESCRIPTION:Clique pour tweet #1 (prérempli) :\nhttps://twitter.com/inten
+ t/tweet?text=A%20French%20user%20emailed%20me%3A%20%22Half%20your%20setti
+ ngs%20page%20is%20in%20English.%20Is%20that%20normal%3F%22\n\n━━━ Thread 
+ complet (relis avant\, paste #2-#5 en replies) ━━━\n\n1/ A French user em
+ ailed me: "Half your settings page is in English. Is that normal?"\n\nI h
+ ad shipped a new settings page 3 weeks earlier. en.json updated. fr.json\
+ , forgotten. de.json\, forgotten. Every non-English user saw raw keys or 
+ English fallback. For 3 weeks. Nobody flagged it. The PR was green.\n\n2/
+  It's the silent class of bug. en works. The other languages just rot.\n\
+ nManual translation is the trap that creates it. Engineers update the sou
+ rce language because that's what they're thinking in. The translation tas
+ k lives "in the next sprint." Forever.\n\n3/ So I built it as a GitHub Ac
+ tion. On every PR:\n\n→ diff locale files\n→ find keys in en.json missing
+  elsewhere\n→ AI-translate them\n→ preserve {name} / {{count}} / <tags> e
+ xactly\n→ commit back to the branch\n\n4/ The hard part was placeholder p
+ reservation:\n\n  "greeting": "Welcome\, {name}!"\n  → "Bonjour\, {nom} !
+ "   ← BROKEN\n\nThe token is code\, not a word. Wrapping it as opaque\, t
+ hen validating it returned intact\, is most of the engineering.\n\n5/ Fre
+ e MIT GitHub Action. Works with i18next\, next-intl\, react-intl\, vue-i1
+ 8n\, FormatJS. Flat or nested layouts.\n\n→ github.com/marketplace/action
+ s/i18n-autopilot\n\nIf you ship multilingual: how far behind are your non
+ -English files right now? (Mine were 3 weeks\, hence this.)\n\n━━━━━━━━━━
+ ━━━━━━\nRepo : https://github.com/marketplace/actions/i18n-autopilot
+LOCATION:https://twitter.com/intent/tweet?text=A%20French%20user%20emaile
+ d%20me%3A%20%22Half%20your%20settings%20page%20is%20in%20English.%20Is%20
+ that%20normal%3F%22
+CATEGORIES:AUTOPILOT-WEEKLY-I18N
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:migration-li-w1@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260609T120000Z
+DTEND:20260609T123000Z
+SUMMARY:🗃️ [W1] Post LinkedIn FR — Migration Autopilot
+DESCRIPTION:Clique pour poster (prérempli) :\nhttps://www.linkedin.com/fe
+ ed/?shareActive=true&text=Une%20migration%20qui%20a%20pass%C3%A9%20stagin
+ g%20en%200%2C4%20seconde%20a%20lock%C3%A9%20notre%20table%20users%20en%20
+ prod%20pendant%2020%20minutes.%0A%0ALa%20ligne%20%3F%20Trois%20tokens.%0A
+ %0A%20%20ALTER%20TABLE%20users%20ALTER%20COLUMN%20phone%20SET%20NOT%20NUL
+ L%3B%0A%0AStaging%20avait%2030%20000%20lignes.%20Prod%20en%20avait%201%2C
+ 2%20milliard.%20Postgres%20a%20scann%C3%A9%20chaque%20ligne%20pour%20vali
+ der%20la%20contrainte%2C%20lock%20ACCESS%20EXCLUSIVE%20tenu%20tout%20du%2
+ 0long.%20Pendant%2020%20minutes%2C%20l'app%20a%20renvoy%C3%A9%20des%20503
+ .%0A%0AAucune%20review%20humaine%20n'a%20flagu%C3%A9.%20Le%20CI%20n'a%20p
+ as%20flagu%C3%A9.%20Staging%20n'a%20pas%20flagu%C3%A9%20%E2%80%94%20parce
+ %20que%20staging%20%C3%A9tait%20petit.%0A%0ALe%20pattern%20est%20dans%20t
+ ous%20les%20handbooks%20Postgres.%20Le%20fix%20tient%20en%203%20lignes.%2
+ 0Mais%20rien%20dans%20le%20flux%20PR%20ne%20le%20surface.%0A%0ADonc%20j'a
+ i%20construit%20le%20linter%20qui%20le%20fait%20%3A%0A%0A%E2%86%92%20Lit%
+ 20chaque%20PR%20de%20migration%20(Prisma%2C%20Drizzle%2C%20Rails%2C%20SQL
+ %20brut)%0A%E2%86%92%2015%20r%C3%A8gles%20d%C3%A9terministes%20(inspir%C3
+ %A9es%20de%20Squawk%2C%20strong_migrations%2C%20Atlas)%0A%E2%86%92%20Pas%
+ 20de%20LLM%20dans%20la%20d%C3%A9tection%20%E2%80%94%20z%C3%A9ro%20faux%20
+ positif%20sur%2050%20cas%20golden%20set%0A%E2%86%92%20Comment%20inline%20
+ %2B%20check%20failed%20%3D%20merge%20bloqu%C3%A9%0A%0AGitHub%20Action%20g
+ ratuite%2C%20MIT%20%3A%20https%3A%2F%2Fgithub.com%2Fmarketplace%2Factions
+ %2Fmigration-autopilot%0A%0AC'%C3%A9tait%20quoi%20votre%20pire%20migratio
+ n%20qui%20a%20touch%C3%A9%20la%20prod%20%3F%0A%0A%23postgres%20%23devops%
+ 20%23databasereliability\n\n━━━ Le post complet (relis avant publier) ━━━
+ \n\nUne migration qui a passé staging en 0\,4 seconde a locké notre table
+  users en prod pendant 20 minutes.\n\nLa ligne ? Trois tokens.\n\n  ALTER
+  TABLE users ALTER COLUMN phone SET NOT NULL\;\n\nStaging avait 30 000 li
+ gnes. Prod en avait 1\,2 milliard. Postgres a scanné chaque ligne pour va
+ lider la contrainte\, lock ACCESS EXCLUSIVE tenu tout du long. Pendant 20
+  minutes\, l'app a renvoyé des 503.\n\nAucune review humaine n'a flagué. 
+ Le CI n'a pas flagué. Staging n'a pas flagué — parce que staging était pe
+ tit.\n\nLe pattern est dans tous les handbooks Postgres. Le fix tient en 
+ 3 lignes. Mais rien dans le flux PR ne le surface.\n\nDonc j'ai construit
+  le linter qui le fait :\n\n→ Lit chaque PR de migration (Prisma\, Drizzl
+ e\, Rails\, SQL brut)\n→ 15 règles déterministes (inspirées de Squawk\, s
+ trong_migrations\, Atlas)\n→ Pas de LLM dans la détection — zéro faux pos
+ itif sur 50 cas golden set\n→ Comment inline + check failed = merge bloqu
+ é\n\nGitHub Action gratuite\, MIT : https://github.com/marketplace/action
+ s/migration-autopilot\n\nC'était quoi votre pire migration qui a touché l
+ a prod ?\n\n#postgres #devops #databasereliability\n\n━━━━━━━━━━━━━━━━\nR
+ epo : https://github.com/marketplace/actions/migration-autopilot
+LOCATION:https://www.linkedin.com/feed/?shareActive=true&text=Une%20migra
+ tion%20qui%20a%20pass%C3%A9%20staging%20en%200%2C4%20seconde%20a%20lock%C
+ 3%A9%20notre%20table%20users%20en%20prod%20pendant%2020%20minutes.%0A%0AL
+ a%20ligne%20%3F%20Trois%20tokens.%0A%0A%20%20ALTER%20TABLE%20users%20ALTE
+ R%20COLUMN%20phone%20SET%20NOT%20NULL%3B%0A%0AStaging%20avait%2030%20000%
+ 20lignes.%20Prod%20en%20avait%201%2C2%20milliard.%20Postgres%20a%20scann%
+ C3%A9%20chaque%20ligne%20pour%20valider%20la%20contrainte%2C%20lock%20ACC
+ ESS%20EXCLUSIVE%20tenu%20tout%20du%20long.%20Pendant%2020%20minutes%2C%20
+ l'app%20a%20renvoy%C3%A9%20des%20503.%0A%0AAucune%20review%20humaine%20n'
+ a%20flagu%C3%A9.%20Le%20CI%20n'a%20pas%20flagu%C3%A9.%20Staging%20n'a%20p
+ as%20flagu%C3%A9%20%E2%80%94%20parce%20que%20staging%20%C3%A9tait%20petit
+ .%0A%0ALe%20pattern%20est%20dans%20tous%20les%20handbooks%20Postgres.%20L
+ e%20fix%20tient%20en%203%20lignes.%20Mais%20rien%20dans%20le%20flux%20PR%
+ 20ne%20le%20surface.%0A%0ADonc%20j'ai%20construit%20le%20linter%20qui%20l
+ e%20fait%20%3A%0A%0A%E2%86%92%20Lit%20chaque%20PR%20de%20migration%20(Pri
+ sma%2C%20Drizzle%2C%20Rails%2C%20SQL%20brut)%0A%E2%86%92%2015%20r%C3%A8gl
+ es%20d%C3%A9terministes%20(inspir%C3%A9es%20de%20Squawk%2C%20strong_migra
+ tions%2C%20Atlas)%0A%E2%86%92%20Pas%20de%20LLM%20dans%20la%20d%C3%A9tecti
+ on%20%E2%80%94%20z%C3%A9ro%20faux%20positif%20sur%2050%20cas%20golden%20s
+ et%0A%E2%86%92%20Comment%20inline%20%2B%20check%20failed%20%3D%20merge%20
+ bloqu%C3%A9%0A%0AGitHub%20Action%20gratuite%2C%20MIT%20%3A%20https%3A%2F%
+ 2Fgithub.com%2Fmarketplace%2Factions%2Fmigration-autopilot%0A%0AC'%C3%A9t
+ ait%20quoi%20votre%20pire%20migration%20qui%20a%20touch%C3%A9%20la%20prod
+ %20%3F%0A%0A%23postgres%20%23devops%20%23databasereliability
+CATEGORIES:AUTOPILOT-WEEKLY-MIGRATION
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:migration-x-w1@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260610T150000Z
+DTEND:20260610T153000Z
+SUMMARY:🗃️ [W1] Post X thread EN — Migration Autopilot
+DESCRIPTION:Clique pour tweet #1 (prérempli) :\nhttps://twitter.com/inten
+ t/tweet?text=A%20migration%20that%20ran%20in%200.4%20seconds%20on%20stagi
+ ng%20locked%20our%20prod%20users%20table%20for%2020%20minutes.\n\n━━━ Thr
+ ead complet (relis avant\, paste #2-#5 en replies) ━━━\n\n1/ A migration 
+ that ran in 0.4 seconds on staging locked our prod users table for 20 min
+ utes.\n\nThe line:\n\n  ALTER TABLE users ALTER COLUMN phone SET NOT NULL
+ \;\n\nThree tokens. Staging: 30K rows. Prod: 1.2B rows. Postgres scanned 
+ every row to validate. ACCESS EXCLUSIVE the whole time.\n\n2/ Staging lie
+ s to you in 3 ways:\n\n- Volume: 30K vs 1.2B. Lock duration scales with r
+ ows.\n- Contention: 1 dev vs 1000s of writers waiting on each row.\n- Ver
+ sions: PG11 vs PG15 lock-upgrade semantics differ.\n\nThe PR review never
+  surfaces "this statement will lock writes for a full table scan."\n\n3/ 
+ So I built the linter. 15 rules across:\n\n- Data loss: DROP COLUMN\, DRO
+ P TABLE\, TRUNCATE\n- Locks: SET NOT NULL\, ALTER COLUMN TYPE\, non-CONCU
+ RRENTLY index\n- The Prisma/Drizzle trap: CREATE INDEX CONCURRENTLY insid
+ e a wrapped tx (fails)\n- Silent breaks: FK without NOT VALID\, rename co
+ lumn during deploy\n\n4/ Deterministic\, not LLM. False positives kill me
+ rge-gating tools — the eval has a hard 0-FP gate on 50 cases.\n\nRule sou
+ rces: Squawk\, ankane/strong_migrations\, Atlas PG301-311\, real incident
+  postmortems.\n\n5/ Free MIT GitHub Action. 2-minute install\, no API key
+ .\n\n→ github.com/marketplace/actions/migration-autopilot\n\nWhat's the w
+ orst migration you've seen take down prod?\n\n━━━━━━━━━━━━━━━━\nRepo : ht
+ tps://github.com/marketplace/actions/migration-autopilot
+LOCATION:https://twitter.com/intent/tweet?text=A%20migration%20that%20ran
+ %20in%200.4%20seconds%20on%20staging%20locked%20our%20prod%20users%20tabl
+ e%20for%2020%20minutes.
+CATEGORIES:AUTOPILOT-WEEKLY-MIGRATION
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:svelte-li-w2@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260616T083000Z
+DTEND:20260616T086000Z
+SUMMARY:🪄 [W2] Post LinkedIn FR — Svelte Autopilot
+DESCRIPTION:Clique pour poster (prérempli) :\nhttps://www.linkedin.com/fe
+ ed/?shareActive=true&text=%F0%9F%90%9B%20Bug%20Svelte%205%20de%20la%20sem
+ aine%20%3A%20d%C3%A9structurer%20%24state%20casse%20la%20r%C3%A9activit%C
+ 3%A9.%0A%0ALe%20pi%C3%A8ge%20%3A%0A%0A%20%20let%20%7B%20count%20%7D%20%3D
+ %20%24state(%7B%20count%3A%200%20%7D)%3B%0A%20%20%0A%20%20function%20incr
+ ement()%20%7B%20count%2B%2B%3B%20%7D%0A%20%20%2F%2F%20count%20s'incr%C3%A
+ 9mente...%20mais%20l'UI%20ne%20re-render%20pas.%0A%0APourquoi%20%3F%20%24
+ state%20retourne%20un%20proxy.%20La%20d%C3%A9structuration%20extrait%20la
+ %20VALEUR%2C%20plus%20le%20proxy.%20Mutations%20perdues.%0A%0ALe%20fix%20
+ %3A%0A%0A%20%20let%20state%20%3D%20%24state(%7B%20count%3A%200%20%7D)%3B%
+ 0A%20%20%0A%20%20function%20increment()%20%7B%20state.count%2B%2B%3B%20%7
+ D%0A%0ASubtil.%20Pas%20une%20erreur.%20Pas%20un%20warning.%20Juste%20un%2
+ 0UI%20mort%20en%20silence.%0A%0AMon%20reviewer%20flag%20ce%20pattern.%20G
+ ratuit%2C%20MIT%2C%20install%202%20min%20%3A%0A%E2%86%92%20github.com%2Fm
+ arketplace%2Factions%2Fsvelte-autopilot%0A%0AVous%20voyez%20d'autres%20%2
+ 2gotchas%22%20Svelte%205%20que%20personne%20ne%20mentionne%20%3F%0A%0A%23
+ svelte%20%23svelte5%20%23frontend\n\n━━━ Le post complet (relis avant pub
+ lier) ━━━\n\n🐛 Bug Svelte 5 de la semaine : déstructurer $state casse la
+  réactivité.\n\nLe piège :\n\n  let { count } = $state({ count: 0 })\;\n 
+  \n  function increment() { count++\; }\n  // count s'incrémente... mais 
+ l'UI ne re-render pas.\n\nPourquoi ? $state retourne un proxy. La déstruc
+ turation extrait la VALEUR\, plus le proxy. Mutations perdues.\n\nLe fix 
+ :\n\n  let state = $state({ count: 0 })\;\n  \n  function increment() { s
+ tate.count++\; }\n\nSubtil. Pas une erreur. Pas un warning. Juste un UI m
+ ort en silence.\n\nMon reviewer flag ce pattern. Gratuit\, MIT\, install 
+ 2 min :\n→ github.com/marketplace/actions/svelte-autopilot\n\nVous voyez 
+ d'autres "gotchas" Svelte 5 que personne ne mentionne ?\n\n#svelte #svelt
+ e5 #frontend\n\n━━━━━━━━━━━━━━━━\nRepo : https://github.com/marketplace/a
+ ctions/svelte-autopilot
+LOCATION:https://www.linkedin.com/feed/?shareActive=true&text=%F0%9F%90%9
+ B%20Bug%20Svelte%205%20de%20la%20semaine%20%3A%20d%C3%A9structurer%20%24s
+ tate%20casse%20la%20r%C3%A9activit%C3%A9.%0A%0ALe%20pi%C3%A8ge%20%3A%0A%0
+ A%20%20let%20%7B%20count%20%7D%20%3D%20%24state(%7B%20count%3A%200%20%7D)
+ %3B%0A%20%20%0A%20%20function%20increment()%20%7B%20count%2B%2B%3B%20%7D%
+ 0A%20%20%2F%2F%20count%20s'incr%C3%A9mente...%20mais%20l'UI%20ne%20re-ren
+ der%20pas.%0A%0APourquoi%20%3F%20%24state%20retourne%20un%20proxy.%20La%2
+ 0d%C3%A9structuration%20extrait%20la%20VALEUR%2C%20plus%20le%20proxy.%20M
+ utations%20perdues.%0A%0ALe%20fix%20%3A%0A%0A%20%20let%20state%20%3D%20%2
+ 4state(%7B%20count%3A%200%20%7D)%3B%0A%20%20%0A%20%20function%20increment
+ ()%20%7B%20state.count%2B%2B%3B%20%7D%0A%0ASubtil.%20Pas%20une%20erreur.%
+ 20Pas%20un%20warning.%20Juste%20un%20UI%20mort%20en%20silence.%0A%0AMon%2
+ 0reviewer%20flag%20ce%20pattern.%20Gratuit%2C%20MIT%2C%20install%202%20mi
+ n%20%3A%0A%E2%86%92%20github.com%2Fmarketplace%2Factions%2Fsvelte-autopil
+ ot%0A%0AVous%20voyez%20d'autres%20%22gotchas%22%20Svelte%205%20que%20pers
+ onne%20ne%20mentionne%20%3F%0A%0A%23svelte%20%23svelte5%20%23frontend
+CATEGORIES:AUTOPILOT-WEEKLY-SVELTE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:svelte-x-w2@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260617T130000Z
+DTEND:20260617T133000Z
+SUMMARY:🪄 [W2] Post X thread EN — Svelte Autopilot
+DESCRIPTION:Clique pour tweet #1 (prérempli) :\nhttps://twitter.com/inten
+ t/tweet?text=Svelte%205%20bug%20of%20the%20week%3A%20destructuring%20%24s
+ tate%20kills%20reactivity%20silently.\n\n━━━ Thread complet (relis avant\
+ , paste #2-#5 en replies) ━━━\n\n1/ Svelte 5 bug of the week: destructuri
+ ng $state kills reactivity silently.\n\n  let { count } = $state({ count:
+  0 })\;\n  \n  function increment() { count++\; }\n  // count goes up. UI
+  never updates.\n\nNo error. No warning. Just a dead component.\n\n2/ Why
+ : $state returns a proxy. Destructuring extracts the VALUE\, not the prox
+ y. Mutations lose the reactive wrapper.\n\nSame class of bug (also caught
+ ):\n\n  let state = $state({ count: 0 })\;\n  $effect(() => { state.count
+  = state.count * 2\; })\;\n  // infinite loop — $effect reads what it wri
+ tes\n\n3/ The fix for destructuring:\n\n  let state = $state({ count: 0 }
+ )\;\n  \n  function increment() { state.count++\; }\n\nFor the effect-loo
+ p:\n\n  let doubled = $derived(state.count * 2)\;\n  // not $effect — $de
+ rived is what you wanted\n\n4/ These won't show up in a generic AI review
+ . The reviewer sees valid JS\, valid assignment\, ships it.\n\nI built on
+ e that knows runes. Catches both above + $env/static/private leaks\, SSR 
+ window crashes\, {@html} XSS.\n\n5/ Free MIT GitHub Action:\n\n→ github.c
+ om/marketplace/actions/svelte-autopilot\n\nWhat rune trap have you seen s
+ hip to prod?\n\n━━━━━━━━━━━━━━━━\nRepo : https://github.com/marketplace/a
+ ctions/svelte-autopilot
+LOCATION:https://twitter.com/intent/tweet?text=Svelte%205%20bug%20of%20th
+ e%20week%3A%20destructuring%20%24state%20kills%20reactivity%20silently.
+CATEGORIES:AUTOPILOT-WEEKLY-SVELTE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:i18n-li-w2@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260616T093000Z
+DTEND:20260616T096000Z
+SUMMARY:🌍 [W2] Post LinkedIn FR — i18n Autopilot
+DESCRIPTION:Clique pour poster (prérempli) :\nhttps://www.linkedin.com/fe
+ ed/?shareActive=true&text=%F0%9F%90%9B%20Bug%20i18n%20de%20la%20semaine%2
+ 0%3A%20%22Bienvenue%20%7Bnom%7D%20!%22%0A%0ASpot%20le%20bug.%0A%0AOrigina
+ l%20%3A%0A%0A%20%20%22greeting%22%3A%20%22Welcome%2C%20%7Bname%7D!%22%0A%
+ 0ATraduction%20%22AI%22%20na%C3%AFve%20%3A%0A%0A%20%20%22greeting%22%3A%2
+ 0%22Bienvenue%2C%20%7Bnom%7D%20!%22%0A%0A%C3%87a%20compile.%20Le%20test%2
+ 0passe.%20Vous%20shippez.%0A%0AProduction%20%3A%20tous%20les%20French%20u
+ sers%20voient%20%22Bienvenue%2C%20%7Bnom%7D%20!%22%20%E2%80%94%20texte%20
+ litt%C3%A9ral%2C%20avec%20les%20accolades.%20Parce%20que%20le%20moteur%20
+ de%20templates%20cherche%20%60%7Bnom%7D%60.%20Vous%20interpolez%20%60%7Bn
+ ame%7D%60.%20Personne%20ne%20traduit%20%60%7Bname%7D%60%20en%20%60%7Bnom%
+ 7D%60%20%E2%80%94%20c'est%20CODE%2C%20pas%20un%20mot.%0A%0A%C3%87a%20arri
+ ve%20d%C3%A8s%20qu'un%20humain%20copie-colle%20dans%20Google%20Translate%
+ 2C%20ou%20qu'un%20LLM%20bouge%20un%20peu%20trop%20libre.%0A%0ALe%20fix%20
+ %3A%20valider%20que%20les%20placeholders%20sortent%20intactes%20AVANT%20d
+ e%20merger.%20Wrapper%20les%20tokens%20en%20zone%20opaque%20pour%20l'LLM.
+ %20Si%20le%20compte%20ne%20match%20pas%20%E2%86%92%20reject.%0A%0AMon%20A
+ ction%20fait%20%C3%A7a%20c%C3%B4t%C3%A9%20CI.%20Gratuit%20MIT%20%3A%0A%E2
+ %86%92%20github.com%2Fmarketplace%2Factions%2Fi18n-autopilot%0A%0AVous%20
+ avez%20d%C3%A9j%C3%A0%20eu%20un%20%60%7Bnom%7D%60%20shipped%20en%20prod%2
+ 0%3F%0A%0A%23i18n%20%23l10n%20%23internationalisation\n\n━━━ Le post comp
+ let (relis avant publier) ━━━\n\n🐛 Bug i18n de la semaine : "Bienvenue {
+ nom} !"\n\nSpot le bug.\n\nOriginal :\n\n  "greeting": "Welcome\, {name}!
+ "\n\nTraduction "AI" naïve :\n\n  "greeting": "Bienvenue\, {nom} !"\n\nÇa
+  compile. Le test passe. Vous shippez.\n\nProduction : tous les French us
+ ers voient "Bienvenue\, {nom} !" — texte littéral\, avec les accolades. P
+ arce que le moteur de templates cherche `{nom}`. Vous interpolez `{name}`
+ . Personne ne traduit `{name}` en `{nom}` — c'est CODE\, pas un mot.\n\nÇ
+ a arrive dès qu'un humain copie-colle dans Google Translate\, ou qu'un LL
+ M bouge un peu trop libre.\n\nLe fix : valider que les placeholders sorte
+ nt intactes AVANT de merger. Wrapper les tokens en zone opaque pour l'LLM
+ . Si le compte ne match pas → reject.\n\nMon Action fait ça côté CI. Grat
+ uit MIT :\n→ github.com/marketplace/actions/i18n-autopilot\n\nVous avez d
+ éjà eu un `{nom}` shipped en prod ?\n\n#i18n #l10n #internationalisation\
+ n\n━━━━━━━━━━━━━━━━\nRepo : https://github.com/marketplace/actions/i18n-a
+ utopilot
+LOCATION:https://www.linkedin.com/feed/?shareActive=true&text=%F0%9F%90%9
+ B%20Bug%20i18n%20de%20la%20semaine%20%3A%20%22Bienvenue%20%7Bnom%7D%20!%2
+ 2%0A%0ASpot%20le%20bug.%0A%0AOriginal%20%3A%0A%0A%20%20%22greeting%22%3A%
+ 20%22Welcome%2C%20%7Bname%7D!%22%0A%0ATraduction%20%22AI%22%20na%C3%AFve%
+ 20%3A%0A%0A%20%20%22greeting%22%3A%20%22Bienvenue%2C%20%7Bnom%7D%20!%22%0
+ A%0A%C3%87a%20compile.%20Le%20test%20passe.%20Vous%20shippez.%0A%0AProduc
+ tion%20%3A%20tous%20les%20French%20users%20voient%20%22Bienvenue%2C%20%7B
+ nom%7D%20!%22%20%E2%80%94%20texte%20litt%C3%A9ral%2C%20avec%20les%20accol
+ ades.%20Parce%20que%20le%20moteur%20de%20templates%20cherche%20%60%7Bnom%
+ 7D%60.%20Vous%20interpolez%20%60%7Bname%7D%60.%20Personne%20ne%20traduit%
+ 20%60%7Bname%7D%60%20en%20%60%7Bnom%7D%60%20%E2%80%94%20c'est%20CODE%2C%2
+ 0pas%20un%20mot.%0A%0A%C3%87a%20arrive%20d%C3%A8s%20qu'un%20humain%20copi
+ e-colle%20dans%20Google%20Translate%2C%20ou%20qu'un%20LLM%20bouge%20un%20
+ peu%20trop%20libre.%0A%0ALe%20fix%20%3A%20valider%20que%20les%20placehold
+ ers%20sortent%20intactes%20AVANT%20de%20merger.%20Wrapper%20les%20tokens%
+ 20en%20zone%20opaque%20pour%20l'LLM.%20Si%20le%20compte%20ne%20match%20pa
+ s%20%E2%86%92%20reject.%0A%0AMon%20Action%20fait%20%C3%A7a%20c%C3%B4t%C3%
+ A9%20CI.%20Gratuit%20MIT%20%3A%0A%E2%86%92%20github.com%2Fmarketplace%2Fa
+ ctions%2Fi18n-autopilot%0A%0AVous%20avez%20d%C3%A9j%C3%A0%20eu%20un%20%60
+ %7Bnom%7D%60%20shipped%20en%20prod%20%3F%0A%0A%23i18n%20%23l10n%20%23inte
+ rnationalisation
+CATEGORIES:AUTOPILOT-WEEKLY-I18N
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:i18n-x-w2@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260617T140000Z
+DTEND:20260617T143000Z
+SUMMARY:🌍 [W2] Post X thread EN — i18n Autopilot
+DESCRIPTION:Clique pour tweet #1 (prérempli) :\nhttps://twitter.com/inten
+ t/tweet?text=i18n%20bug%20of%20the%20week%3A\n\n━━━ Thread complet (relis
+  avant\, paste #2-#5 en replies) ━━━\n\n1/ i18n bug of the week:\n\n  "gr
+ eeting": "Welcome\, {name}!"\n  → "Bienvenue\, {nom} !"\n\nLooks fine. Co
+ mpiles. Tests pass. Ship to prod.\n\nResult: every French user sees liter
+ al "Bienvenue\, {nom} !" with braces. Because the templating engine looks
+  for {nom}\, your code interpolates {name}.\n\n2/ The bug: a translator (
+ human or LLM) treated {name} as a word.\n\nIt's not a word. It's code. Sa
+ me class:\n\n  "count": "{{count}} items"        // {{count}} accidentall
+ y → {nombre} \n  "html":  "Click <a>here</a>"       // <a> tag closes wro
+ ng\n  "icu":   "{count\, plural\, one {…}}"  // ICU breaks if {count} ren
+ amed\n\n3/ The fix: validate placeholders are 1:1 BEFORE merging.\n\n  be
+ foreKey: {name}\, {{count}}\, <a>\n  afterKey:  {name}\, {{count}}\, <a>\
+ n  → diff matches: ✅\n  → diff differs: ❌ reject\n\nThat's most of the en
+ gineering. Translation is the easy part.\n\n4/ My Action does this in CI:
+ \n- Diff locale files\n- Find missing keys\n- AI-translate\n- Validate pl
+ aceholders intact\n- Commit back to PR\n\nIf validation fails\, no commit
+ . No broken French.\n\n5/ Free MIT GitHub Action:\n\n→ github.com/marketp
+ lace/actions/i18n-autopilot\n\nWhat's your worst i18n bug in prod?\n\n━━━
+ ━━━━━━━━━━━━━\nRepo : https://github.com/marketplace/actions/i18n-autopil
+ ot
+LOCATION:https://twitter.com/intent/tweet?text=i18n%20bug%20of%20the%20we
+ ek%3A
+CATEGORIES:AUTOPILOT-WEEKLY-I18N
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:migration-li-w2@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260616T120000Z
+DTEND:20260616T123000Z
+SUMMARY:🗃️ [W2] Post LinkedIn FR — Migration Autopilot
+DESCRIPTION:Clique pour poster (prérempli) :\nhttps://www.linkedin.com/fe
+ ed/?shareActive=true&text=%F0%9F%90%9B%20Bug%20migration%20de%20la%20sema
+ ine%20%3A%20%60CREATE%20INDEX%20CONCURRENTLY%60%20dans%20Prisma.%0A%0AVou
+ s%20avez%20fait%20vos%20devoirs.%20Vous%20savez%20qu'un%20%60CREATE%20IND
+ EX%60%20bloque%20les%20writes.%20Vous%20%C3%A9crivez%20%3A%0A%0A%20%20CRE
+ ATE%20INDEX%20CONCURRENTLY%20idx_email%20ON%20users%20(email)%3B%0A%0ASau
+ f%20que%20Prisma%20wrappe%20les%20migrations%20dans%20une%20transaction%2
+ 0par%20d%C3%A9faut.%20Et%20%60CONCURRENTLY%60%20ne%20peut%20PAS%20tourner
+ %20dans%20une%20transaction.%0A%0AR%C3%A9sultat%20%3A%20migration%20plant
+ e%20au%20runtime%2C%20%C3%A0%20moiti%C3%A9%20appliqu%C3%A9e.%20Vous%20d%C
+ 3%A9couvrez%20%C3%A7a%20%C3%A0%203h%20du%20matin%20pendant%20le%20d%C3%A9
+ ploiement.%20Vous%20corrigez%20%C3%A0%20la%20main.%20Vous%20perdez%202h.%
+ 0A%0ALe%20pattern%20existe%20aussi%20sur%20Drizzle%20(drizzle-kit%20wrapp
+ e).%20Sur%20Rails%20c'est%20%60disable_ddl_transaction!%60.%0A%0AFix%20Pr
+ isma%20%3A%20cr%C3%A9er%20la%20migration%20avec%20%60--create-only%60%2C%
+ 20retirer%20le%20BEGIN%2FCOMMIT%20manuel%2C%20puis%20appliquer.%20Doc%20c
+ ach%C3%A9e%20dans%20les%20release%20notes%204.x.%0A%0AMon%20Action%20attr
+ ape%20ce%20cas%20(r%C3%A8gle%20%60prisma-concurrently-in-txn%60)%20en%20P
+ R%20review.%20Vous%20voyez%20le%20warning%20avant%20de%20merger%2C%20pas%
+ 20%C3%A0%203h.%0A%0AFree%20MIT%20%3A%20github.com%2Fmarketplace%2Factions
+ %2Fmigration-autopilot%0A%0AVous%2C%20c'est%20quel%20pi%C3%A8ge%20ORM-sp%
+ C3%A9cifique%20qui%20vous%20a%20d%C3%A9j%C3%A0%20mordu%20%3F%0A%0A%23post
+ gres%20%23prisma%20%23drizzle\n\n━━━ Le post complet (relis avant publier
+ ) ━━━\n\n🐛 Bug migration de la semaine : `CREATE INDEX CONCURRENTLY` dan
+ s Prisma.\n\nVous avez fait vos devoirs. Vous savez qu'un `CREATE INDEX` 
+ bloque les writes. Vous écrivez :\n\n  CREATE INDEX CONCURRENTLY idx_emai
+ l ON users (email)\;\n\nSauf que Prisma wrappe les migrations dans une tr
+ ansaction par défaut. Et `CONCURRENTLY` ne peut PAS tourner dans une tran
+ saction.\n\nRésultat : migration plante au runtime\, à moitié appliquée. 
+ Vous découvrez ça à 3h du matin pendant le déploiement. Vous corrigez à l
+ a main. Vous perdez 2h.\n\nLe pattern existe aussi sur Drizzle (drizzle-k
+ it wrappe). Sur Rails c'est `disable_ddl_transaction!`.\n\nFix Prisma : c
+ réer la migration avec `--create-only`\, retirer le BEGIN/COMMIT manuel\,
+  puis appliquer. Doc cachée dans les release notes 4.x.\n\nMon Action att
+ rape ce cas (règle `prisma-concurrently-in-txn`) en PR review. Vous voyez
+  le warning avant de merger\, pas à 3h.\n\nFree MIT : github.com/marketpl
+ ace/actions/migration-autopilot\n\nVous\, c'est quel piège ORM-spécifique
+  qui vous a déjà mordu ?\n\n#postgres #prisma #drizzle\n\n━━━━━━━━━━━━━━━
+ ━\nRepo : https://github.com/marketplace/actions/migration-autopilot
+LOCATION:https://www.linkedin.com/feed/?shareActive=true&text=%F0%9F%90%9
+ B%20Bug%20migration%20de%20la%20semaine%20%3A%20%60CREATE%20INDEX%20CONCU
+ RRENTLY%60%20dans%20Prisma.%0A%0AVous%20avez%20fait%20vos%20devoirs.%20Vo
+ us%20savez%20qu'un%20%60CREATE%20INDEX%60%20bloque%20les%20writes.%20Vous
+ %20%C3%A9crivez%20%3A%0A%0A%20%20CREATE%20INDEX%20CONCURRENTLY%20idx_emai
+ l%20ON%20users%20(email)%3B%0A%0ASauf%20que%20Prisma%20wrappe%20les%20mig
+ rations%20dans%20une%20transaction%20par%20d%C3%A9faut.%20Et%20%60CONCURR
+ ENTLY%60%20ne%20peut%20PAS%20tourner%20dans%20une%20transaction.%0A%0AR%C
+ 3%A9sultat%20%3A%20migration%20plante%20au%20runtime%2C%20%C3%A0%20moiti%
+ C3%A9%20appliqu%C3%A9e.%20Vous%20d%C3%A9couvrez%20%C3%A7a%20%C3%A0%203h%2
+ 0du%20matin%20pendant%20le%20d%C3%A9ploiement.%20Vous%20corrigez%20%C3%A0
+ %20la%20main.%20Vous%20perdez%202h.%0A%0ALe%20pattern%20existe%20aussi%20
+ sur%20Drizzle%20(drizzle-kit%20wrappe).%20Sur%20Rails%20c'est%20%60disabl
+ e_ddl_transaction!%60.%0A%0AFix%20Prisma%20%3A%20cr%C3%A9er%20la%20migrat
+ ion%20avec%20%60--create-only%60%2C%20retirer%20le%20BEGIN%2FCOMMIT%20man
+ uel%2C%20puis%20appliquer.%20Doc%20cach%C3%A9e%20dans%20les%20release%20n
+ otes%204.x.%0A%0AMon%20Action%20attrape%20ce%20cas%20(r%C3%A8gle%20%60pri
+ sma-concurrently-in-txn%60)%20en%20PR%20review.%20Vous%20voyez%20le%20war
+ ning%20avant%20de%20merger%2C%20pas%20%C3%A0%203h.%0A%0AFree%20MIT%20%3A%
+ 20github.com%2Fmarketplace%2Factions%2Fmigration-autopilot%0A%0AVous%2C%2
+ 0c'est%20quel%20pi%C3%A8ge%20ORM-sp%C3%A9cifique%20qui%20vous%20a%20d%C3%
+ A9j%C3%A0%20mordu%20%3F%0A%0A%23postgres%20%23prisma%20%23drizzle
+CATEGORIES:AUTOPILOT-WEEKLY-MIGRATION
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:migration-x-w2@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260617T150000Z
+DTEND:20260617T153000Z
+SUMMARY:🗃️ [W2] Post X thread EN — Migration Autopilot
+DESCRIPTION:Clique pour tweet #1 (prérempli) :\nhttps://twitter.com/inten
+ t/tweet?text=Migration%20bug%20of%20the%20week%3A%20CREATE%20INDEX%20CONC
+ URRENTLY%20inside%20Prisma%20fails%20at%20runtime.\n\n━━━ Thread complet 
+ (relis avant\, paste #2-#5 en replies) ━━━\n\n1/ Migration bug of the wee
+ k: CREATE INDEX CONCURRENTLY inside Prisma fails at runtime.\n\nYou did t
+ he homework. You know plain CREATE INDEX blocks writes. So you wrote:\n\n
+   CREATE INDEX CONCURRENTLY idx_email ON users (email)\;\n\nBut Prisma wr
+ aps migrations in a transaction. And CONCURRENTLY can't run in a transact
+ ion.\n\nThe migration crashes at deploy. Half-applied. 3am wake-up.\n\n2/
+  Same pattern across ORMs:\n\n- Prisma — implicit tx wrapper\n- Drizzle —
+  drizzle-kit same behavior\n- Rails — needs `disable_ddl_transaction!` pe
+ r-migration\n- TypeORM — same trap\n\nThe fix is documented but hidden. P
+ risma needs --create-only + manual BEGIN/COMMIT removal.\n\n3/ The 2-step
+  safe pattern:\n\nmigration_a.sql (in normal Prisma flow):\n  -- prep wor
+ k\, schema changes\n\nmigration_b.sql (raw SQL\, no tx wrapper):\n  CREAT
+ E INDEX CONCURRENTLY idx_email ON users (email)\;\n\nYou have to lie to P
+ risma a bit. The ORM wasn't designed for this.\n\n4/ My Action catches th
+ is in PR review (rule `prisma-concurrently-in-txn`):\n\n  ❌ HIGH — CREATE
+  INDEX CONCURRENTLY can't run inside Prisma's wrapped tx\n  Safe rewrite:
+  split into a separate migration with the BEGIN stripped\n\nCheck fails. 
+ Merge blocked.\n\n5/ Free MIT GitHub Action. Multi-ORM (Prisma/Drizzle/Ra
+ ils/raw SQL):\n\n→ github.com/marketplace/actions/migration-autopilot\n\n
+ What ORM-specific migration trap has bitten you?\n\n━━━━━━━━━━━━━━━━\nRep
+ o : https://github.com/marketplace/actions/migration-autopilot
+LOCATION:https://twitter.com/intent/tweet?text=Migration%20bug%20of%20the
+ %20week%3A%20CREATE%20INDEX%20CONCURRENTLY%20inside%20Prisma%20fails%20at
+ %20runtime.
+CATEGORIES:AUTOPILOT-WEEKLY-MIGRATION
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:svelte-li-w3@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260623T083000Z
+DTEND:20260623T086000Z
+SUMMARY:🪄 [W3] Post LinkedIn FR — Svelte Autopilot
+DESCRIPTION:Clique pour poster (prérempli) :\nhttps://www.linkedin.com/fe
+ ed/?shareActive=true&text=%5BScreenshot%20du%20bot%20en%20action%20sur%20
+ une%20PR%20Svelte%5D%0A%0AVoil%C3%A0%20comment%20%C3%A7a%20marche%20dans%
+ 20la%20vraie%20vie.%0A%0APR%20%3A%20ajout%20d'une%20page%20contact%20avec
+ %20un%20form%20qui%20POST%20direct%20vers%20SendGrid.%0A%0ALe%20bot%20voi
+ t%20%3A%0A-%20import%20SENDGRID_API_KEY%20depuis%20%24env%2Fstatic%2Fpriv
+ ate%0A-%20dans%20un%20fichier%20.svelte%20(%3D%20bundle%20client)%0A-%20%
+ E2%86%92%20secret%20leak%0A%0ASeverity%3A%20critical.%20Suggestion%3A%20d
+ %C3%A9placer%20dans%20%2Bpage.server.ts.%0A%0ACheck%20failed.%20Merge%20b
+ loqu%C3%A9.%0A%0AAvant%20qu'on%20d%C3%A9ploie%20une%20cl%C3%A9%20Sendgrid
+ %20sur%20internet.%0A%0APlus%20de%20%22j'ai%20fait%20un%20PR%2C%20c'est%2
+ 0pass%C3%A9.%22%20Plus%20de%20devsec%20qui%20d%C3%A9couvre%20le%20leak%20
+ 2%20mois%20plus%20tard.%20Plus%20de%20rotation%20de%20cl%C3%A9%20urgente.
+ %0A%0AFree%20MIT%20GitHub%20Action%20%3A%0A%E2%86%92%20github.com%2Fmarke
+ tplace%2Factions%2Fsvelte-autopilot%0A%0AC'est%20quoi%20votre%20dernier%2
+ 0secret%20leak%20(qu'on%20saura%20ou%20non)%3F%0A%0A%23svelte%20%23devsec
+ ops%20%23securecoding\n\n━━━ Le post complet (relis avant publier) ━━━\n\
+ n[Screenshot du bot en action sur une PR Svelte]\n\nVoilà comment ça marc
+ he dans la vraie vie.\n\nPR : ajout d'une page contact avec un form qui P
+ OST direct vers SendGrid.\n\nLe bot voit :\n- import SENDGRID_API_KEY dep
+ uis $env/static/private\n- dans un fichier .svelte (= bundle client)\n- →
+  secret leak\n\nSeverity: critical. Suggestion: déplacer dans +page.serve
+ r.ts.\n\nCheck failed. Merge bloqué.\n\nAvant qu'on déploie une clé Sendg
+ rid sur internet.\n\nPlus de "j'ai fait un PR\, c'est passé." Plus de dev
+ sec qui découvre le leak 2 mois plus tard. Plus de rotation de clé urgent
+ e.\n\nFree MIT GitHub Action :\n→ github.com/marketplace/actions/svelte-a
+ utopilot\n\nC'est quoi votre dernier secret leak (qu'on saura ou non)?\n\
+ n#svelte #devsecops #securecoding\n\n━━━━━━━━━━━━━━━━\nRepo : https://git
+ hub.com/marketplace/actions/svelte-autopilot
+LOCATION:https://www.linkedin.com/feed/?shareActive=true&text=%5BScreensh
+ ot%20du%20bot%20en%20action%20sur%20une%20PR%20Svelte%5D%0A%0AVoil%C3%A0%
+ 20comment%20%C3%A7a%20marche%20dans%20la%20vraie%20vie.%0A%0APR%20%3A%20a
+ jout%20d'une%20page%20contact%20avec%20un%20form%20qui%20POST%20direct%20
+ vers%20SendGrid.%0A%0ALe%20bot%20voit%20%3A%0A-%20import%20SENDGRID_API_K
+ EY%20depuis%20%24env%2Fstatic%2Fprivate%0A-%20dans%20un%20fichier%20.svel
+ te%20(%3D%20bundle%20client)%0A-%20%E2%86%92%20secret%20leak%0A%0ASeverit
+ y%3A%20critical.%20Suggestion%3A%20d%C3%A9placer%20dans%20%2Bpage.server.
+ ts.%0A%0ACheck%20failed.%20Merge%20bloqu%C3%A9.%0A%0AAvant%20qu'on%20d%C3
+ %A9ploie%20une%20cl%C3%A9%20Sendgrid%20sur%20internet.%0A%0APlus%20de%20%
+ 22j'ai%20fait%20un%20PR%2C%20c'est%20pass%C3%A9.%22%20Plus%20de%20devsec%
+ 20qui%20d%C3%A9couvre%20le%20leak%202%20mois%20plus%20tard.%20Plus%20de%2
+ 0rotation%20de%20cl%C3%A9%20urgente.%0A%0AFree%20MIT%20GitHub%20Action%20
+ %3A%0A%E2%86%92%20github.com%2Fmarketplace%2Factions%2Fsvelte-autopilot%0
+ A%0AC'est%20quoi%20votre%20dernier%20secret%20leak%20(qu'on%20saura%20ou%
+ 20non)%3F%0A%0A%23svelte%20%23devsecops%20%23securecoding
+CATEGORIES:AUTOPILOT-WEEKLY-SVELTE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:svelte-x-w3@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260624T130000Z
+DTEND:20260624T133000Z
+SUMMARY:🪄 [W3] Post X thread EN — Svelte Autopilot
+DESCRIPTION:Clique pour tweet #1 (prérempli) :\nhttps://twitter.com/inten
+ t/tweet?text=This%20is%20what%20a%20real%20catch%20looks%20like.\n\n━━━ T
+ hread complet (relis avant\, paste #2-#5 en replies) ━━━\n\n1/ This is wh
+ at a real catch looks like.\n\n[Bot PR comment screenshot]\n\nPR adds a c
+ ontact form posting to SendGrid. The bot:\n\n  🔴 CRITICAL — $env/static/
+ private imported in client component\n  src/routes/contact/+page.svelte:5
+ \n  \n  Move SENDGRID_API_KEY to a server-only file (+page.server.ts).\n 
+  Otherwise it ships in the browser bundle.\n\n2/ Check failed. Merge bloc
+ ked.\n\nThe thing about secret leaks in client bundles: you don't find ou
+ t from your monitoring. You find out from a security researcher emailing 
+ you. Or from someone abusing the key.\n\nOr\, if you're lucky\, never. An
+ d the key just sits in production for years.\n\n3/ This is rule-based\, n
+ ot AI guesswork. The rule is:\n\n  IF file matches /\\.svelte$/ AND\n  fi
+ le imports from /\\$env\\/(static|dynamic)\\/private/ AND\n  file is clie
+ nt-reachable (not +page.server.ts):\n    flag as critical\n\n15+ such rul
+ es. Each one a specific Svelte / SvelteKit footgun.\n\n4/ Free MIT. No AP
+ I key. Multi-rule:\n\n- $env/static/private leak\n- top-level window/docu
+ ment/localStorage (SSR crash)\n- {@html} on user input (XSS)\n- destructu
+ red $state (silent reactivity loss)\n- $effect doing what $derived should
+ \n\n5/ → github.com/marketplace/actions/svelte-autopilot\n\nTry it on you
+ r last PR. Does it flag something real?\n\n━━━━━━━━━━━━━━━━\nRepo : https
+ ://github.com/marketplace/actions/svelte-autopilot
+LOCATION:https://twitter.com/intent/tweet?text=This%20is%20what%20a%20rea
+ l%20catch%20looks%20like.
+CATEGORIES:AUTOPILOT-WEEKLY-SVELTE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:i18n-li-w3@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260623T093000Z
+DTEND:20260623T096000Z
+SUMMARY:🌍 [W3] Post LinkedIn FR — i18n Autopilot
+DESCRIPTION:Clique pour poster (prérempli) :\nhttps://www.linkedin.com/fe
+ ed/?shareActive=true&text=%5BScreenshot%20du%20commit%20auto%20sur%20une%
+ 20PR%20i18n%5D%0A%0AVoil%C3%A0%20ce%20que%20vous%20voyez%20sur%20la%20PR%
+ 20apr%C3%A8s%20que%20le%20bot%20tourne%20%3A\n\n━━━ Le post complet (reli
+ s avant publier) ━━━\n\n[Screenshot du commit auto sur une PR i18n]\n\nVo
+ ilà ce que vous voyez sur la PR après que le bot tourne :\n\n━━━━━━━━━━━━
+ ━━━━\nRepo : https://github.com/marketplace/actions/i18n-autopilot
+LOCATION:https://www.linkedin.com/feed/?shareActive=true&text=%5BScreensh
+ ot%20du%20commit%20auto%20sur%20une%20PR%20i18n%5D%0A%0AVoil%C3%A0%20ce%2
+ 0que%20vous%20voyez%20sur%20la%20PR%20apr%C3%A8s%20que%20le%20bot%20tourn
+ e%20%3A
+CATEGORIES:AUTOPILOT-WEEKLY-I18N
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:i18n-x-w3@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260624T140000Z
+DTEND:20260624T143000Z
+SUMMARY:🌍 [W3] Post X thread EN — i18n Autopilot
+DESCRIPTION:Clique pour tweet #1 (prérempli) :\nhttps://twitter.com/inten
+ t/tweet?text=This%20is%20what%20a%20typical%20PR%20looks%20like%20after%2
+ 0the%20bot%20runs%3A\n\n━━━ Thread complet (relis avant\, paste #2-#5 en 
+ replies) ━━━\n\n1/ This is what a typical PR looks like after the bot run
+ s:\n\n[Screenshot of the auto-commit diff]\n\n━━━━━━━━━━━━━━━━\nRepo : ht
+ tps://github.com/marketplace/actions/i18n-autopilot
+LOCATION:https://twitter.com/intent/tweet?text=This%20is%20what%20a%20typ
+ ical%20PR%20looks%20like%20after%20the%20bot%20runs%3A
+CATEGORIES:AUTOPILOT-WEEKLY-I18N
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:migration-li-w3@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260623T120000Z
+DTEND:20260623T123000Z
+SUMMARY:🗃️ [W3] Post LinkedIn FR — Migration Autopilot
+DESCRIPTION:Clique pour poster (prérempli) :\nhttps://www.linkedin.com/fe
+ ed/?shareActive=true&text=%5BScreenshot%20du%20bot%20bloquant%203%20PRs%2
+ 0simultan%C3%A9es%20sur%20le%20repo%20demo%5D%0A%0AVoil%C3%A0%20%C3%A0%20
+ quoi%20%C3%A7a%20ressemble%20sur%203%20PRs%20pi%C3%A9g%C3%A9es%20en%20par
+ all%C3%A8le.%0A%0APR%20%231%20%3A%20DROP%20COLUMN%20email%0A%E2%86%92%20%
+ F0%9F%94%B4%20HIGH%3A%20data%20loss%20%2B%20breaks%20the%20running%20app%
+ 20during%20rollout%0A%E2%86%92%20Safe%20rewrite%3A%20rename%20to%20email_
+ deprecated%2C%20drop%20later%0A%0APR%20%232%20%3A%20ADD%20COLUMN%20age%20
+ int%20NOT%20NULL%0A%E2%86%92%20%F0%9F%94%B4%20HIGH%3A%20fails%20outright%
+ 20on%20any%20populated%20production%20table%0A%E2%86%92%20Safe%20rewrite%
+ 3A%20add%20nullable%2C%20backfill%2C%20then%20NOT%20VALID%20%2B%20VALIDAT
+ E%0A%0APR%20%233%20%3A%20CREATE%20INDEX%20idx_users_email%20ON%20users%20
+ (email)%0A%E2%86%92%20%F0%9F%94%B4%20HIGH%3A%20blocks%20writes%20during%2
+ 0build%2C%20minutes%20on%20big%20tables%0A%E2%86%92%20Safe%20rewrite%3A%2
+ 0CONCURRENTLY%20(in%20a%20non-wrapped%20migration%20if%20Prisma%2FDrizzle
+ )%0A%0A3%20check%20failed.%203%20merges%20bloqu%C3%A9s.%0A%0AAvant%20que%
+ 20%C3%A7a%20parte%20en%20prod.%0A%0AFree%20MIT%20%3A%20github.com%2Fmarke
+ tplace%2Factions%2Fmigration-autopilot%0A%0AVous%2C%20votre%20process%20a
+ ctuel%20attrape%20ces%203%20cas%20%3F%0A%0A%23postgres%20%23devops%20%23d
+ atabasereliability\n\n━━━ Le post complet (relis avant publier) ━━━\n\n[S
+ creenshot du bot bloquant 3 PRs simultanées sur le repo demo]\n\nVoilà à 
+ quoi ça ressemble sur 3 PRs piégées en parallèle.\n\nPR #1 : DROP COLUMN 
+ email\n→ 🔴 HIGH: data loss + breaks the running app during rollout\n→ Sa
+ fe rewrite: rename to email_deprecated\, drop later\n\nPR #2 : ADD COLUMN
+  age int NOT NULL\n→ 🔴 HIGH: fails outright on any populated production 
+ table\n→ Safe rewrite: add nullable\, backfill\, then NOT VALID + VALIDAT
+ E\n\nPR #3 : CREATE INDEX idx_users_email ON users (email)\n→ 🔴 HIGH: bl
+ ocks writes during build\, minutes on big tables\n→ Safe rewrite: CONCURR
+ ENTLY (in a non-wrapped migration if Prisma/Drizzle)\n\n3 check failed. 3
+  merges bloqués.\n\nAvant que ça parte en prod.\n\nFree MIT : github.com/
+ marketplace/actions/migration-autopilot\n\nVous\, votre process actuel at
+ trape ces 3 cas ?\n\n#postgres #devops #databasereliability\n\n━━━━━━━━━━
+ ━━━━━━\nRepo : https://github.com/marketplace/actions/migration-autopilot
+LOCATION:https://www.linkedin.com/feed/?shareActive=true&text=%5BScreensh
+ ot%20du%20bot%20bloquant%203%20PRs%20simultan%C3%A9es%20sur%20le%20repo%2
+ 0demo%5D%0A%0AVoil%C3%A0%20%C3%A0%20quoi%20%C3%A7a%20ressemble%20sur%203%
+ 20PRs%20pi%C3%A9g%C3%A9es%20en%20parall%C3%A8le.%0A%0APR%20%231%20%3A%20D
+ ROP%20COLUMN%20email%0A%E2%86%92%20%F0%9F%94%B4%20HIGH%3A%20data%20loss%2
+ 0%2B%20breaks%20the%20running%20app%20during%20rollout%0A%E2%86%92%20Safe
+ %20rewrite%3A%20rename%20to%20email_deprecated%2C%20drop%20later%0A%0APR%
+ 20%232%20%3A%20ADD%20COLUMN%20age%20int%20NOT%20NULL%0A%E2%86%92%20%F0%9F
+ %94%B4%20HIGH%3A%20fails%20outright%20on%20any%20populated%20production%2
+ 0table%0A%E2%86%92%20Safe%20rewrite%3A%20add%20nullable%2C%20backfill%2C%
+ 20then%20NOT%20VALID%20%2B%20VALIDATE%0A%0APR%20%233%20%3A%20CREATE%20IND
+ EX%20idx_users_email%20ON%20users%20(email)%0A%E2%86%92%20%F0%9F%94%B4%20
+ HIGH%3A%20blocks%20writes%20during%20build%2C%20minutes%20on%20big%20tabl
+ es%0A%E2%86%92%20Safe%20rewrite%3A%20CONCURRENTLY%20(in%20a%20non-wrapped
+ %20migration%20if%20Prisma%2FDrizzle)%0A%0A3%20check%20failed.%203%20merg
+ es%20bloqu%C3%A9s.%0A%0AAvant%20que%20%C3%A7a%20parte%20en%20prod.%0A%0AF
+ ree%20MIT%20%3A%20github.com%2Fmarketplace%2Factions%2Fmigration-autopilo
+ t%0A%0AVous%2C%20votre%20process%20actuel%20attrape%20ces%203%20cas%20%3F
+ %0A%0A%23postgres%20%23devops%20%23databasereliability
+CATEGORIES:AUTOPILOT-WEEKLY-MIGRATION
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:migration-x-w3@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260624T150000Z
+DTEND:20260624T153000Z
+SUMMARY:🗃️ [W3] Post X thread EN — Migration Autopilot
+DESCRIPTION:Clique pour tweet #1 (prérempli) :\nhttps://twitter.com/inten
+ t/tweet?text=Three%20PRs.%20Three%20blocked%20merges.%20Bot%20caught%20ea
+ ch%20in%20%3C30%20sec.\n\n━━━ Thread complet (relis avant\, paste #2-#5 e
+ n replies) ━━━\n\n1/ Three PRs. Three blocked merges. Bot caught each in 
+ <30 sec.\n\n[Screenshots of the demo repo's 3 PRs]\n\nPR #1: ALTER TABLE 
+ "User" DROP COLUMN "email"\;\nPR #2: ALTER TABLE "User" ADD COLUMN "age" 
+ int NOT NULL\;\nPR #3: CREATE INDEX idx_users_email ON users (email)\;\n\
+ nAll three: looks fine in dev. Each one a different production-down disas
+ ter.\n\n2/ Why each is dangerous:\n\n#1 DROP COLUMN: permanent data loss 
+ + the deployed app version still reads it. 503s during rollout.\n\n#2 ADD
+  NOT NULL no default: Postgres has nothing to backfill. Migration fails o
+ utright on a populated prod table. Rollback time.\n\n#3 CREATE INDEX: tak
+ es a SHARE lock that blocks all writes until the index finishes building.
+  Minutes on a big table.\n\n3/ The catch + safe rewrite\, inline on the P
+ R:\n\n  🔴 HIGH — DROP COLUMN permanently deletes data\n  Safe rewrite: r
+ ename to email_deprecated first\, drop in a later migration\n\n  🔴 HIGH 
+ — NOT NULL without default fails on populated tables\n  Safe rewrite: add
+  nullable\, backfill in batches\, then NOT VALID + VALIDATE\n\n  🔴 HIGH 
+ — CREATE INDEX without CONCURRENTLY blocks writes\n  Safe rewrite: CREATE
+  INDEX CONCURRENTLY (outside any wrapped tx)\n\n4/ Detection is determini
+ stic. No LLM in the path. The 50-case golden set has a hard 0-FP gate — m
+ erge-gating tools that cry wolf get disabled within a week.\n\nMulti-ORM 
+ (Prisma\, Drizzle\, Rails\, raw SQL). Postgres + MySQL.\n\n5/ Free MIT Gi
+ tHub Action:\n\n→ github.com/marketplace/actions/migration-autopilot\n\nW
+ hat pattern from the 15 would have caught your last incident?\n\n━━━━━━━━
+ ━━━━━━━━\nRepo : https://github.com/marketplace/actions/migration-autopil
+ ot
+LOCATION:https://twitter.com/intent/tweet?text=Three%20PRs.%20Three%20blo
+ cked%20merges.%20Bot%20caught%20each%20in%20%3C30%20sec.
+CATEGORIES:AUTOPILOT-WEEKLY-MIGRATION
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:svelte-li-w4@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260630T083000Z
+DTEND:20260630T086000Z
+SUMMARY:🪄 [W4] Post LinkedIn FR — Svelte Autopilot
+DESCRIPTION:Clique pour poster (prérempli) :\nhttps://www.linkedin.com/fe
+ ed/?shareActive=true&text=Setup%20svelte-autopilot%20%E2%80%94%202%20minu
+ tes%20chrono.%0A%0A%C3%89tape%201%20%3A%20R%C3%A9cup%C3%A9rer%20une%20cl%
+ C3%A9%20OpenAI%20et%20l'ajouter%20en%20secret%20GitHub.%0A%0A%20%20Settin
+ gs%20%E2%86%92%20Secrets%20and%20variables%20%E2%86%92%20Actions%0A%20%20
+ %E2%86%92%20Add%20secret%3A%20OPENAI_API_KEY%0A%0A%C3%89tape%202%20%3A%20
+ Cr%C3%A9er%20le%20fichier%20workflow.%0A%0A%20%20.github%2Fworkflows%2Fsv
+ elte-review.yml\n\n━━━ Le post complet (relis avant publier) ━━━\n\nSetup
+  svelte-autopilot — 2 minutes chrono.\n\nÉtape 1 : Récupérer une clé Open
+ AI et l'ajouter en secret GitHub.\n\n  Settings → Secrets and variables →
+  Actions\n  → Add secret: OPENAI_API_KEY\n\nÉtape 2 : Créer le fichier wo
+ rkflow.\n\n  .github/workflows/svelte-review.yml\n\n━━━━━━━━━━━━━━━━\nRep
+ o : https://github.com/marketplace/actions/svelte-autopilot
+LOCATION:https://www.linkedin.com/feed/?shareActive=true&text=Setup%20sve
+ lte-autopilot%20%E2%80%94%202%20minutes%20chrono.%0A%0A%C3%89tape%201%20%
+ 3A%20R%C3%A9cup%C3%A9rer%20une%20cl%C3%A9%20OpenAI%20et%20l'ajouter%20en%
+ 20secret%20GitHub.%0A%0A%20%20Settings%20%E2%86%92%20Secrets%20and%20vari
+ ables%20%E2%86%92%20Actions%0A%20%20%E2%86%92%20Add%20secret%3A%20OPENAI_
+ API_KEY%0A%0A%C3%89tape%202%20%3A%20Cr%C3%A9er%20le%20fichier%20workflow.
+ %0A%0A%20%20.github%2Fworkflows%2Fsvelte-review.yml
+CATEGORIES:AUTOPILOT-WEEKLY-SVELTE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:svelte-x-w4@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260631T130000Z
+DTEND:20260631T133000Z
+SUMMARY:🪄 [W4] Post X thread EN — Svelte Autopilot
+DESCRIPTION:Clique pour tweet #1 (prérempli) :\nhttps://twitter.com/inten
+ t/tweet?text=Setup%20svelte-autopilot%20%E2%80%94%202%20minutes.\n\n━━━ T
+ hread complet (relis avant\, paste #2-#5 en replies) ━━━\n\n1/ Setup svel
+ te-autopilot — 2 minutes.\n\nStep 1: OpenAI key as GitHub secret.\n\n  Se
+ ttings → Secrets and variables → Actions\n  Add: OPENAI_API_KEY\n\n2/ Ste
+ p 2: workflow file.\n\n  .github/workflows/svelte-review.yml\n\n━━━━━━━━━
+ ━━━━━━━\nRepo : https://github.com/marketplace/actions/svelte-autopilot
+LOCATION:https://twitter.com/intent/tweet?text=Setup%20svelte-autopilot%2
+ 0%E2%80%94%202%20minutes.
+CATEGORIES:AUTOPILOT-WEEKLY-SVELTE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:i18n-li-w4@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260630T093000Z
+DTEND:20260630T096000Z
+SUMMARY:🌍 [W4] Post LinkedIn FR — i18n Autopilot
+DESCRIPTION:Clique pour poster (prérempli) :\nhttps://www.linkedin.com/fe
+ ed/?shareActive=true&text=Setup%20i18n-autopilot%20%E2%80%94%2090%20secon
+ des.%0A%0A%C3%89tape%201%20%3A%20R%C3%A9cup%C3%A9rer%20une%20cl%C3%A9%20O
+ penAI%2C%20ajouter%20en%20secret%20GitHub.%0A%0A%20%20Settings%20%E2%86%9
+ 2%20Secrets%20%E2%86%92%20Add%3A%20OPENAI_API_KEY%0A%0A%C3%89tape%202%20%
+ 3A%20Workflow%20file.%0A%0A%20%20.github%2Fworkflows%2Fi18n.yml\n\n━━━ Le
+  post complet (relis avant publier) ━━━\n\nSetup i18n-autopilot — 90 seco
+ ndes.\n\nÉtape 1 : Récupérer une clé OpenAI\, ajouter en secret GitHub.\n
+ \n  Settings → Secrets → Add: OPENAI_API_KEY\n\nÉtape 2 : Workflow file.\
+ n\n  .github/workflows/i18n.yml\n\n━━━━━━━━━━━━━━━━\nRepo : https://githu
+ b.com/marketplace/actions/i18n-autopilot
+LOCATION:https://www.linkedin.com/feed/?shareActive=true&text=Setup%20i18
+ n-autopilot%20%E2%80%94%2090%20secondes.%0A%0A%C3%89tape%201%20%3A%20R%C3
+ %A9cup%C3%A9rer%20une%20cl%C3%A9%20OpenAI%2C%20ajouter%20en%20secret%20Gi
+ tHub.%0A%0A%20%20Settings%20%E2%86%92%20Secrets%20%E2%86%92%20Add%3A%20OP
+ ENAI_API_KEY%0A%0A%C3%89tape%202%20%3A%20Workflow%20file.%0A%0A%20%20.git
+ hub%2Fworkflows%2Fi18n.yml
+CATEGORIES:AUTOPILOT-WEEKLY-I18N
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:i18n-x-w4@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260631T140000Z
+DTEND:20260631T143000Z
+SUMMARY:🌍 [W4] Post X thread EN — i18n Autopilot
+DESCRIPTION:Clique pour tweet #1 (prérempli) :\nhttps://twitter.com/inten
+ t/tweet?text=Setup%20i18n-autopilot%20%E2%80%94%2090%20seconds.\n\n━━━ Th
+ read complet (relis avant\, paste #2-#5 en replies) ━━━\n\n1/ Setup i18n-
+ autopilot — 90 seconds.\n\nStep 1: OpenAI key as GitHub secret.\n\n  Sett
+ ings → Secrets → Add: OPENAI_API_KEY\n\n2/ Step 2: workflow file.\n\n  .g
+ ithub/workflows/i18n.yml\n\n━━━━━━━━━━━━━━━━\nRepo : https://github.com/m
+ arketplace/actions/i18n-autopilot
+LOCATION:https://twitter.com/intent/tweet?text=Setup%20i18n-autopilot%20%
+ E2%80%94%2090%20seconds.
+CATEGORIES:AUTOPILOT-WEEKLY-I18N
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:migration-li-w4@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260630T120000Z
+DTEND:20260630T123000Z
+SUMMARY:🗃️ [W4] Post LinkedIn FR — Migration Autopilot
+DESCRIPTION:Clique pour poster (prérempli) :\nhttps://www.linkedin.com/fe
+ ed/?shareActive=true&text=Setup%20migration-autopilot%20%E2%80%94%2090%20
+ secondes.%0A%0A%C3%89tape%201%20%3A%20Workflow%20file.%0A%0A%20%20.github
+ %2Fworkflows%2Fmigration-review.yml\n\n━━━ Le post complet (relis avant p
+ ublier) ━━━\n\nSetup migration-autopilot — 90 secondes.\n\nÉtape 1 : Work
+ flow file.\n\n  .github/workflows/migration-review.yml\n\n━━━━━━━━━━━━━━━
+ ━\nRepo : https://github.com/marketplace/actions/migration-autopilot
+LOCATION:https://www.linkedin.com/feed/?shareActive=true&text=Setup%20mig
+ ration-autopilot%20%E2%80%94%2090%20secondes.%0A%0A%C3%89tape%201%20%3A%2
+ 0Workflow%20file.%0A%0A%20%20.github%2Fworkflows%2Fmigration-review.yml
+CATEGORIES:AUTOPILOT-WEEKLY-MIGRATION
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:migration-x-w4@useautopilot.dev
+DTSTAMP:20260601T120000Z
+DTSTART:20260631T150000Z
+DTEND:20260631T153000Z
+SUMMARY:🗃️ [W4] Post X thread EN — Migration Autopilot
+DESCRIPTION:Clique pour tweet #1 (prérempli) :\nhttps://twitter.com/inten
+ t/tweet?text=Setup%20migration-autopilot%20%E2%80%94%2090%20seconds.\n\n━
+ ━━ Thread complet (relis avant\, paste #2-#5 en replies) ━━━\n\n1/ Setup 
+ migration-autopilot — 90 seconds.\n\nStep 1: workflow file.\n\n  .github/
+ workflows/migration-review.yml\n\n━━━━━━━━━━━━━━━━\nRepo : https://github
+ .com/marketplace/actions/migration-autopilot
+LOCATION:https://twitter.com/intent/tweet?text=Setup%20migration-autopilo
+ t%20%E2%80%94%2090%20seconds.
+CATEGORIES:AUTOPILOT-WEEKLY-MIGRATION
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR
