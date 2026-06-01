@@ -7,8 +7,8 @@ UID:ma-warmup-2026-06-01@useautopilot.dev
 DTSTAMP:20260531T180000Z
 DTSTART:20260601T180000Z
 DTEND:20260601T200000Z
-SUMMARY:🌙 SOIR J-1 migration-autopilot — stars + article + tweet + LinkedI
- n FR
+SUMMARY:🚀 [LAUNCH J-1] migration-autopilot — Warmup 2h (stars + article + 
+ tweet + LinkedIn FR + newsletters)
 DESCRIPTION:BLOC 2H — clique chaque lien.\n\n━━━ 1) ⭐ STARS (20 min) ━━━\nE
  nvoie ce message à 5 amis dev (WhatsApp) :\n« Hey [prénom]\, j'ai publié mi
  gration-autopilot. ⭐ stp ? https://github.com/isabellehuecloser-ctrl/migrat
@@ -60,6 +60,18 @@ DESCRIPTION:BLOC 2H — clique chaque lien.\n\n━━━ 1) ⭐ STARS (20 min) �
  ubmit\n→ Bytes : https://bytes.dev/submit\n→ Postgres Weekly : https://post
  gresweekly.com\n→ Console.dev : https://console.dev/contact\n\n━━━━━━━━━━━━
  ━━━━━━━━━━\nOBJECTIF avant minuit : ≥5 stars GitHub.
+LOCATION:https://github.com/isabellehuecloser-ctrl/migration-autopilot
+CATEGORIES:MIGRATION-AUTOPILOT-LAUNCH
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT15M
@@ -71,7 +83,8 @@ UID:ma-dm-influencers-2026-06-02@useautopilot.dev
 DTSTAMP:20260531T180000Z
 DTSTART:20260602T070000Z
 DTEND:20260602T100000Z
-SUMMARY:📨 DM influenceurs Postgres — migration-autopilot
+SUMMARY:📨 [LAUNCH J0 matin] migration-autopilot — DM 10 influenceurs Postg
+ res
 DESCRIPTION:DM 6-8 comptes (chaque DM customisé sur leur dernier tweet — 15
  s lookup) :\n\n• @be_haki (DB perf)\n• @nikolayhg (postgres.ai)\n• @samokhv
  alov\n• @craigkerstiens (Crunchy Data)\n• @ankane (strong_migrations)\n• @_
@@ -81,6 +94,18 @@ DESCRIPTION:DM 6-8 comptes (chaque DM customisé sur leur dernier tweet — 15
  ps://github.com/isabellehuecloser-ctrl/migration-autopilot (demo 60s : http
  s://migration.useautopilot.dev/demo). Merci 🙏 »\n\nObjectif : 1-2 quote-tw
  eets pendant Show HN ce soir.
+LOCATION:https://twitter.com/messages
+CATEGORIES:MIGRATION-AUTOPILOT-LAUNCH
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT15M
@@ -92,7 +117,7 @@ UID:ma-tminus15-2026-06-02@useautopilot.dev
 DTSTAMP:20260531T180000Z
 DTSTART:20260602T154500Z
 DTEND:20260602T160000Z
-SUMMARY:🚀 T-15 SHOW HN migration-autopilot
+SUMMARY:🚦 [LAUNCH T-15] migration-autopilot — Prep onglets + café
 DESCRIPTION:PREP 15 MIN AVANT GO-LIVE.\n\nOnglets à ouvrir :\n1. https://ne
  ws.ycombinator.com/submit\n2. https://migration.useautopilot.dev\n3. https:
  //github.com/marketplace/actions/migration-autopilot\n4. https://github.com
@@ -110,6 +135,18 @@ DESCRIPTION:PREP 15 MIN AVANT GO-LIVE.\n\nOnglets à ouvrir :\n1. https://ne
  nd real postmortems. What I'd love feedback on: rules I'm missing\, false p
  ositives on real codebases\, whether the safe-rewrite text is useful or noi
  se. MIT. https://github.com/isabellehuecloser-ctrl/migration-autopilot »
+LOCATION:https://news.ycombinator.com/submit
+CATEGORIES:MIGRATION-AUTOPILOT-LAUNCH
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT15M
@@ -121,7 +158,7 @@ UID:ma-showhn-2026-06-02@useautopilot.dev
 DTSTAMP:20260531T180000Z
 DTSTART:20260602T160000Z
 DTEND:20260602T200000Z
-SUMMARY:⚡ SHOW HN GO-LIVE — migration-autopilot
+SUMMARY:⚡⚡ [SHOW HN GO-LIVE] migration-autopilot — 4H GLUE AU THREAD
 DESCRIPTION:GO : https://news.ycombinator.com/submit\n\nPASTE :\nTitle : Sh
  ow HN: Migration Autopilot – review every DB-migration PR for safety\nURL :
   https://migration.useautopilot.dev\n\nPUIS first comment (event T-15 a le 
@@ -131,6 +168,18 @@ DESCRIPTION:GO : https://news.ycombinator.com/submit\n\nPASTE :\nTitle : Sh
   live (toutes les 30 min) :\nStars : https://github.com/isabellehuecloser-c
  trl/migration-autopilot\nInstalls : https://github.com/marketplace/actions/
  migration-autopilot\nFormspree + Stripe
+LOCATION:https://news.ycombinator.com/submit
+CATEGORIES:MIGRATION-AUTOPILOT-LAUNCH
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT15M
@@ -142,7 +191,8 @@ UID:ma-reddit-2026-06-03@useautopilot.dev
 DTSTAMP:20260531T180000Z
 DTSTART:20260603T080000Z
 DTEND:20260603T083000Z
-SUMMARY:📝 Reddit posts migration-autopilot (J+1)
+SUMMARY:📝 [LAUNCH J+1] migration-autopilot — Reddit r/PostgreSQL + r/devop
+ s
 DESCRIPTION:Catch l'onde Show HN.\n\nr/PostgreSQL — prérempli\, juste Submi
  t :\nhttps://www.reddit.com/r/PostgreSQL/submit?title=I%20built%20a%20free%
  20GitHub%20Action%20that%20lints%20Postgres%20migrations%20in%20the%20PR&te
@@ -158,6 +208,18 @@ DESCRIPTION:Catch l'onde Show HN.\n\nr/PostgreSQL — prérempli\, juste Submi
  dit.com/r/devops/submit (adapter focus 'stop downtime').\n\n⚠️ 1er commenta
  ire du post : « HN thread for context : https://news.ycombinator.com/item?i
  d=... »
+LOCATION:https://www.reddit.com/r/PostgreSQL/submit
+CATEGORIES:MIGRATION-AUTOPILOT-LAUNCH
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1440M
+DESCRIPTION:Reminder
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT60M
+DESCRIPTION:Reminder
+END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT15M
