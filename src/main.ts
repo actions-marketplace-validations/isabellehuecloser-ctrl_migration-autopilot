@@ -5,6 +5,7 @@ import { getMigrationFiles } from "./diff";
 import { runRules, highestSeverity } from "./rules";
 import { enrichFindings } from "./enrich";
 import { postReview } from "./comment";
+import { checkLicense } from "./license";
 
 const SEVERITY_RANK: Record<Severity, number> = { low: 1, medium: 2, high: 3 };
 
@@ -31,6 +32,16 @@ async function run(): Promise<void> {
 
     const { owner, repo } = context.repo;
     const octokit = github.getOctokit(githubToken);
+
+    const license = await checkLicense({
+      licenseKey: core.getInput("license-key"),
+      toolName: "Migration Autopilot",
+      buyUrl: "https://useautopilot.dev/#pricing",
+    });
+    if (!license.allow) {
+      core.setFailed(license.message);
+      return;
+    }
 
     const migrations = await getMigrationFiles(octokit, owner, repo, pr.number, maxFiles, dialect);
     if (migrations.length === 0) {

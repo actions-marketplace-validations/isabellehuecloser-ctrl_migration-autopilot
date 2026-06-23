@@ -269,6 +269,83 @@ const RULES: Rule[] = [
       };
     },
   },
+  {
+    id: "add-column-generated-stored",
+    test: (s, ctx) => {
+      if (ctx.dialect !== "postgres") return null;
+      if (!/^alter table .*\badd column\b/.test(s.norm)) return null;
+      if (!/\bgenerated\s+always\s+as\b/.test(s.norm) || !/\bstored\b/.test(s.norm)) return null;
+      return {
+        severity: "high",
+        title: "Adding a STORED generated column rewrites the table",
+        message:
+          "ADD COLUMN ... GENERATED ALWAYS AS (...) STORED computes the value for every existing row, rewriting the whole table under an ACCESS EXCLUSIVE lock.",
+        safeRewrite:
+          "Add a plain nullable column, backfill the computed value in batches, and keep it up to date from the app or a trigger instead of a stored generated column.",
+      };
+    },
+  },
+  {
+    id: "add-primary-key",
+    test: (s) => {
+      if (!isAlterTable(s.norm)) return null;
+      if (!/\badd\b.*\bprimary key\b/.test(s.norm)) return null;
+      if (/\busing index\b/.test(s.norm)) return null; // safe path: index built concurrently first
+      return {
+        severity: "medium",
+        title: "Adding a PRIMARY KEY builds an index under a lock",
+        message:
+          "ADD PRIMARY KEY builds a unique index and marks the columns NOT NULL while holding an ACCESS EXCLUSIVE lock, blocking writes on a large table.",
+        safeRewrite:
+          "Build the index first with `CREATE UNIQUE INDEX CONCURRENTLY`, make sure the columns are already NOT NULL, then `ALTER TABLE ... ADD PRIMARY KEY USING INDEX`.",
+      };
+    },
+  },
+
+  // ---- REWRITE / EXCLUSIVE-LOCK MAINTENANCE (high) ----
+  {
+    id: "vacuum-full",
+    test: (s) =>
+      /^vacuum\s+full\b/.test(s.norm) || /^vacuum\s*\(\s*full\b/.test(s.norm)
+        ? {
+            severity: "high",
+            title: "VACUUM FULL rewrites the table under an exclusive lock",
+            message:
+              "VACUUM FULL takes an ACCESS EXCLUSIVE lock and rewrites the entire table, blocking all reads and writes until it finishes. On a large table that is minutes of full downtime.",
+            safeRewrite:
+              "Use plain VACUUM, or pg_repack / pg_squeeze to reclaim space without an exclusive lock. Never run VACUUM FULL on a hot table from a migration.",
+          }
+        : null,
+  },
+  {
+    id: "cluster",
+    test: (s) =>
+      /^cluster\s+\S/.test(s.norm)
+        ? {
+            severity: "high",
+            title: "CLUSTER locks and rewrites the table",
+            message:
+              "CLUSTER takes an ACCESS EXCLUSIVE lock and physically rewrites the table to match an index order, blocking reads and writes for the whole duration.",
+            safeRewrite:
+              "Avoid CLUSTER in a migration. If you need the ordering, use pg_repack, which reorders without holding an exclusive lock the entire time.",
+          }
+        : null,
+  },
+  {
+    id: "reindex-not-concurrent",
+    test: (s, ctx) => {
+      if (ctx.dialect !== "postgres") return null;
+      if (!/^reindex\b/.test(s.norm)) return null;
+      if (hasConcurrently(s.norm)) return null;
+      return {
+        severity: "high",
+        title: "REINDEX without CONCURRENTLY blocks the table",
+        message:
+          "REINDEX (without CONCURRENTLY) takes a lock that blocks writes, and REINDEX TABLE/DATABASE blocks reads of the affected relations until it finishes.",
+        safeRewrite: "Use `REINDEX INDEX CONCURRENTLY` (Postgres 12+). It cannot run inside a transaction block.",
+      };
+    },
+  },
 ];
 
 /** Run the full deterministic rule set over a migration. */

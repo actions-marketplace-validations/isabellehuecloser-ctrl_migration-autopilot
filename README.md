@@ -13,9 +13,9 @@
 
 A migration that ran in 0.4s on staging can lock your `users` table for 20 minutes in production. `ALTER COLUMN ... SET NOT NULL`, a non-`CONCURRENTLY` index, a `NOT NULL` column with a backfill, a column type change — each takes an exclusive lock and scans every row. Generic AI review bots don't model lock semantics. Migration Autopilot does: it reads each PR's migration files and flags the operations that cause downtime or data loss, with a safe rewrite for each.
 
-> **Two ways to use it**
-> - 🆓 **Free GitHub Action** (this repo) — deterministic rule engine, no API key needed. Setup below.
-> - ⚡ **Hosted Pro** — 1-click install, no CI setup, dashboard + history. [Install the app →](https://migration.useautopilot.dev) *(coming soon)*
+> **Pricing**
+> - 🆓 **Free and MIT**, on public and private repositories. The full deterministic rule engine, no API key needed.
+> - ⚡ **Hosted Pro is coming** (a dashboard, history, and all your repos in one place). Join the waitlist at [migration.useautopilot.dev](https://migration.useautopilot.dev).
 
 ---
 
@@ -51,6 +51,19 @@ That's it. On every PR that touches a migration, the bot posts a review and (wit
         with:
           api-key: ${{ secrets.OPENAI_API_KEY }}
 ```
+
+### Private repositories
+
+The Action is currently free on private repositories too. A hosted Pro tier (dashboard, history, all your repos in one place) is coming later; join the waitlist at [migration.useautopilot.dev](https://migration.useautopilot.dev).
+
+The optional `license-key` input below is reserved for that future Pro tier and is not required today:
+
+```yaml
+        with:
+          license-key: ${{ secrets.AUTOPILOT_LICENSE_KEY }}
+```
+
+If a license check is ever turned on and the license server is unreachable, the check fails open, so it never blocks your CI.
 
 ---
 

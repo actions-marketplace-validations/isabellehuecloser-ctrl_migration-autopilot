@@ -30,6 +30,10 @@ inputs:
     description: "Maximum number of changed migration files to review in one run."
     required: false
     default: "50"
+  license-key:
+    description: "Optional. Reserved for a future Autopilot Pro tier; not required today. The Action is currently free on all repositories, public and private."
+    required: false
+    default: ""
 
 outputs:
   findings-count:
