@@ -35866,6 +35866,157 @@ async function enrichFindings(apiKey, model, findings) {
 
 /***/ }),
 
+/***/ 9764:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.checkLicense = checkLicense;
+const core = __importStar(__nccwpck_require__(7484));
+const github = __importStar(__nccwpck_require__(3228));
+// === Autopilot Pro licensing =============================================
+// Model: free on PUBLIC repos forever. On PRIVATE repos, once the gate is
+// active, a valid "Autopilot Pro" license is required. Validation FAILS OPEN
+// on any network/server error so a paying customer's CI is never broken by
+// our license server being unreachable.
+//
+// The two constants below are filled in at deploy time (Phase 3/4):
+//   POLAR_ORG_ID     - Polar organization id. PUBLIC value; Polar license
+//                      validation is unauthenticated, so it is safe to ship.
+//   GATE_ACTIVE_FROM - ISO date (e.g. "2026-07-15"). Before this date the gate
+//                      is OFF and private repos run free (existing users are
+//                      warned, never broken). Empty string = gate off.
+const POLAR_ORG_ID = ""; // TODO(deploy): set Polar organization id
+const GATE_ACTIVE_FROM = ""; // TODO(deploy): set ISO go-live date, e.g. "2026-07-15"
+const POLAR_VALIDATE_URL = "https://api.polar.sh/v1/customer-portal/license-keys/validate";
+const VALIDATE_TIMEOUT_MS = 5000;
+function resolvePrivate(opts) {
+    if (typeof opts.repoPrivate === "boolean")
+        return opts.repoPrivate;
+    return github.context.payload.repository?.private === true;
+}
+function gateActive(gateFrom, now) {
+    if (!gateFrom)
+        return false;
+    const from = new Date(gateFrom);
+    if (Number.isNaN(from.getTime()))
+        return false;
+    return now.getTime() >= from.getTime();
+}
+async function validateKey(key, orgId, fetchImpl) {
+    if (!orgId)
+        return "unknown"; // not configured yet -> fail open
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), VALIDATE_TIMEOUT_MS);
+    try {
+        const res = await fetchImpl(POLAR_VALIDATE_URL, {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ key, organization_id: orgId }),
+            signal: controller.signal,
+        });
+        if (res.status === 404)
+            return "invalid"; // key not found
+        if (!res.ok)
+            return "unknown"; // server error -> fail open
+        const data = await res.json();
+        if (data?.status && data.status !== "granted")
+            return "invalid";
+        if (data?.expires_at && new Date(data.expires_at).getTime() < Date.now())
+            return "invalid";
+        return "valid";
+    }
+    catch {
+        return "unknown"; // network/timeout -> fail open
+    }
+    finally {
+        clearTimeout(timer);
+    }
+}
+/**
+ * Decide whether this run is allowed and whether Pro features are unlocked.
+ * Returns { allow:false, message } when a private repo must be blocked.
+ */
+async function checkLicense(opts) {
+    const now = opts.now ?? new Date();
+    const orgId = opts.orgId ?? POLAR_ORG_ID;
+    const gateFrom = opts.gateFrom ?? GATE_ACTIVE_FROM;
+    const fetchImpl = opts.fetchImpl ?? globalThis.fetch;
+    // Public repos: always free.
+    if (!resolvePrivate(opts))
+        return { allow: true, pro: false };
+    const key = (opts.licenseKey || "").trim();
+    // Gate not active yet: run free on private, but warn this is changing.
+    // This is the grandfather / launch-grace window so existing private-repo
+    // users are never broken without notice.
+    if (!gateActive(gateFrom, now)) {
+        if (gateFrom) {
+            core.warning(`${opts.toolName} is free on private repos until ${gateFrom}. After that an ` +
+                `Autopilot Pro license will be required. ${opts.buyUrl}`);
+        }
+        return { allow: true, pro: key.length > 0 };
+    }
+    // Gate active on a private repo.
+    if (!key) {
+        return {
+            allow: false,
+            message: `${opts.toolName} requires an Autopilot Pro license on private repositories. ` +
+                `Start a free trial / subscribe at ${opts.buyUrl}, then set the key as the ` +
+                "`license-key` input (store it in a repository or organization secret).",
+        };
+    }
+    const verdict = await validateKey(key, orgId, fetchImpl);
+    if (verdict === "invalid") {
+        return {
+            allow: false,
+            message: `Autopilot Pro license key is invalid, expired, or revoked. Manage it at ${opts.buyUrl}`,
+        };
+    }
+    if (verdict === "unknown") {
+        core.warning("Could not reach the Autopilot license server; allowing this run (fail-open). " +
+            "The license will be re-checked on the next run.");
+        return { allow: true, pro: true, note: "fail-open" };
+    }
+    return { allow: true, pro: true };
+}
+
+
+/***/ }),
+
 /***/ 1730:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
@@ -35911,6 +36062,7 @@ const diff_1 = __nccwpck_require__(9952);
 const rules_1 = __nccwpck_require__(9244);
 const enrich_1 = __nccwpck_require__(9258);
 const comment_1 = __nccwpck_require__(2246);
+const license_1 = __nccwpck_require__(9764);
 const SEVERITY_RANK = { low: 1, medium: 2, high: 3 };
 async function run() {
     try {
@@ -35932,6 +36084,15 @@ async function run() {
         }
         const { owner, repo } = context.repo;
         const octokit = github.getOctokit(githubToken);
+        const license = await (0, license_1.checkLicense)({
+            licenseKey: core.getInput("license-key"),
+            toolName: "Migration Autopilot",
+            buyUrl: "https://useautopilot.dev/#pricing",
+        });
+        if (!license.allow) {
+            core.setFailed(license.message);
+            return;
+        }
         const migrations = await (0, diff_1.getMigrationFiles)(octokit, owner, repo, pr.number, maxFiles, dialect);
         if (migrations.length === 0) {
             core.info("No database-migration files changed in this PR. Nothing to review.");
@@ -36339,6 +36500,80 @@ const RULES = [
                 title: "Adding a column with a volatile default rewrites the table",
                 message: "A constant DEFAULT is cheap on modern Postgres, but a volatile default (now(), random(), uuid generators) forces a full table rewrite under a lock.",
                 safeRewrite: "Add the column with no default, backfill the computed value in batches, then set the default for new rows.",
+            };
+        },
+    },
+    {
+        id: "add-column-generated-stored",
+        test: (s, ctx) => {
+            if (ctx.dialect !== "postgres")
+                return null;
+            if (!/^alter table .*\badd column\b/.test(s.norm))
+                return null;
+            if (!/\bgenerated\s+always\s+as\b/.test(s.norm) || !/\bstored\b/.test(s.norm))
+                return null;
+            return {
+                severity: "high",
+                title: "Adding a STORED generated column rewrites the table",
+                message: "ADD COLUMN ... GENERATED ALWAYS AS (...) STORED computes the value for every existing row, rewriting the whole table under an ACCESS EXCLUSIVE lock.",
+                safeRewrite: "Add a plain nullable column, backfill the computed value in batches, and keep it up to date from the app or a trigger instead of a stored generated column.",
+            };
+        },
+    },
+    {
+        id: "add-primary-key",
+        test: (s) => {
+            if (!isAlterTable(s.norm))
+                return null;
+            if (!/\badd\b.*\bprimary key\b/.test(s.norm))
+                return null;
+            if (/\busing index\b/.test(s.norm))
+                return null; // safe path: index built concurrently first
+            return {
+                severity: "medium",
+                title: "Adding a PRIMARY KEY builds an index under a lock",
+                message: "ADD PRIMARY KEY builds a unique index and marks the columns NOT NULL while holding an ACCESS EXCLUSIVE lock, blocking writes on a large table.",
+                safeRewrite: "Build the index first with `CREATE UNIQUE INDEX CONCURRENTLY`, make sure the columns are already NOT NULL, then `ALTER TABLE ... ADD PRIMARY KEY USING INDEX`.",
+            };
+        },
+    },
+    // ---- REWRITE / EXCLUSIVE-LOCK MAINTENANCE (high) ----
+    {
+        id: "vacuum-full",
+        test: (s) => /^vacuum\s+full\b/.test(s.norm) || /^vacuum\s*\(\s*full\b/.test(s.norm)
+            ? {
+                severity: "high",
+                title: "VACUUM FULL rewrites the table under an exclusive lock",
+                message: "VACUUM FULL takes an ACCESS EXCLUSIVE lock and rewrites the entire table, blocking all reads and writes until it finishes. On a large table that is minutes of full downtime.",
+                safeRewrite: "Use plain VACUUM, or pg_repack / pg_squeeze to reclaim space without an exclusive lock. Never run VACUUM FULL on a hot table from a migration.",
+            }
+            : null,
+    },
+    {
+        id: "cluster",
+        test: (s) => /^cluster\s+\S/.test(s.norm)
+            ? {
+                severity: "high",
+                title: "CLUSTER locks and rewrites the table",
+                message: "CLUSTER takes an ACCESS EXCLUSIVE lock and physically rewrites the table to match an index order, blocking reads and writes for the whole duration.",
+                safeRewrite: "Avoid CLUSTER in a migration. If you need the ordering, use pg_repack, which reorders without holding an exclusive lock the entire time.",
+            }
+            : null,
+    },
+    {
+        id: "reindex-not-concurrent",
+        test: (s, ctx) => {
+            if (ctx.dialect !== "postgres")
+                return null;
+            if (!/^reindex\b/.test(s.norm))
+                return null;
+            if (hasConcurrently(s.norm))
+                return null;
+            return {
+                severity: "high",
+                title: "REINDEX without CONCURRENTLY blocks the table",
+                message: "REINDEX (without CONCURRENTLY) takes a lock that blocks writes, and REINDEX TABLE/DATABASE blocks reads of the affected relations until it finishes.",
+                safeRewrite: "Use `REINDEX INDEX CONCURRENTLY` (Postgres 12+). It cannot run inside a transaction block.",
             };
         },
     },

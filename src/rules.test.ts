@@ -53,6 +53,26 @@ describe("lock rules (high)", () => {
   });
 });
 
+describe("rewrite / exclusive-lock maintenance rules", () => {
+  it("flags VACUUM FULL", () => {
+    expect(ruleIds("VACUUM FULL users;")).toContain("vacuum-full");
+  });
+  it("flags CLUSTER", () => {
+    expect(ruleIds("CLUSTER users USING idx_users_pkey;")).toContain("cluster");
+  });
+  it("flags REINDEX without CONCURRENTLY", () => {
+    expect(ruleIds("REINDEX TABLE users;")).toContain("reindex-not-concurrent");
+  });
+  it("flags ADD COLUMN GENERATED ... STORED", () => {
+    expect(
+      ruleIds("ALTER TABLE users ADD COLUMN full_name text GENERATED ALWAYS AS (first || ' ' || last) STORED;")
+    ).toContain("add-column-generated-stored");
+  });
+  it("flags ADD PRIMARY KEY", () => {
+    expect(ruleIds("ALTER TABLE users ADD PRIMARY KEY (id);")).toContain("add-primary-key");
+  });
+});
+
 describe("medium rules", () => {
   it("flags FK without NOT VALID", () => {
     expect(
@@ -81,6 +101,8 @@ describe("SAFE migrations produce ZERO findings (no false positives)", () => {
     "INSERT INTO settings (key, value) VALUES ('x', 'y');",
     "DROP INDEX CONCURRENTLY idx_old;",
     "ALTER TABLE users ADD CONSTRAINT u UNIQUE USING INDEX idx_users_email_uniq;",
+    "REINDEX INDEX CONCURRENTLY idx_users_email;",
+    "ALTER TABLE users ADD PRIMARY KEY USING INDEX idx_users_pkey;",
   ];
   for (const sql of safe) {
     it(`no findings: ${sql.slice(0, 48)}`, () => {

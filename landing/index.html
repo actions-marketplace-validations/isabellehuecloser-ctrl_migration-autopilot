@@ -109,7 +109,7 @@
         <h1 class="h1">Catch the migration that locks<br/>your production table.</h1>
         <p class="lead">
           A migration that ran in 0.4s on staging can freeze your <code>users</code> table for 20 minutes
-          in production. Migration Autopilot reviews every migration PR and blocks the unsafe ones —
+          in production. Migration Autopilot reviews every migration PR and blocks the unsafe ones,
           with the exact safe rewrite. Prisma, Drizzle, Rails, raw SQL.
         </p>
         <div class="row mt-24">
@@ -240,7 +240,7 @@ jobs:
             <h3>Pro (hosted)</h3>
             <p class="price">€12<small>/mo</small></p>
             <p class="mt-8">1-click install, no CI setup, dashboard + history, all repos.</p>
-            <a class="btn mt-16" id="checkout" href="#" data-stripe-link="https://buy.stripe.com/bJe14n5D05II8x7fxFebu00">Reserve early access →</a>
+            <a class="btn mt-16" href="#early">Join the waitlist →</a>
           </div>
           <div class="card">
             <h3>Team</h3>
@@ -250,8 +250,8 @@ jobs:
         </div>
 
         <div class="card mt-40" style="max-width:560px;">
-          <h3>Get notified at launch</h3>
-          <p class="muted mt-8">Drop your email — we'll ping you the day it goes live, plus a launch discount.</p>
+          <h3>Hosted Pro is coming</h3>
+          <p class="muted mt-8">The free Action is live now. Drop your email and we'll ping you when the hosted version ships (dashboard, history, all repos), with a launch discount.</p>
           <form class="field mt-16" id="capture" onsubmit="return onCapture(event)">
             <input type="email" id="email" placeholder="you@company.com" required />
             <button class="btn" type="submit">Notify me</button>
